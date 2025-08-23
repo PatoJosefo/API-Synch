@@ -1,4 +1,4 @@
-# **API 2°DSM - Synch**
+<h1 align="center"> Synch
 
 <p align="center">
       <img src="docs/Img/Logo-Synch.png" alt="logo da Synch" width="200">
@@ -27,11 +27,11 @@
 
 ## 🏅 Desafio <a id="desafio"></a>
 
-O desafio consiste em
+O desafio consiste em desenvolver uma plataforma única que centralize e padronize processos administrativos, comerciais e operacionais, facilitando a visualização das informações, notificações e relatórios, garantindo maior eficiência e controle para a empresa.
 
 ## 🏅 Solução <a id="solucao"></a>
 
-Para solucionar o problema, o Synch
+Para solucionar o problema, o Synch...
 
 ---
 
@@ -115,25 +115,31 @@ Para solucionar o problema, o Synch
       <td>Pedro Alkmim</td>
       <td>Product Owner</td>
       <td><a href="https://github.com/PedroAlkmim"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/pedro-alkmim-168690358/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
       <td>João Eduardo</td>
       <td>Scrum Master</td>
       <td><a href="https://github.com/joao-ed252"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/joão-eduardo-o-9110332a2"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
       <td>Rafael Oliveira</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/PatoJosefo"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/rafaelguimaraesoliveira"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
       <td>Giovanni Martins</td>
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/Giommn"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/giovanni-martins-216995356"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+    </tr>
+    <tr>
+      <td>Caio Almeida</td>
+      <td>Desenvolvedor</td>
+      <td><a href="https://github.com/Caio-Almeida4"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/caio-almeida-23487b375/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
   </table>
 </div>
