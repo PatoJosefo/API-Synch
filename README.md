@@ -5,17 +5,17 @@
       <h2 align="center"> Synch
 </p>
 
-<p align="center">
-  | <a href ="#desafio"> Desafio</a>  |
-  <a href ="#solucao"> Solução</a>  |   
-  <a href ="#backlog"> Backlog do Produto</a>  |
-  <a href ="#dor">DoR</a>  |
-  <a href ="#dod">DoD</a>  |
-  <a href ="#sprint"> Cronograma de Sprints</a>  |
-  <a href ="#tecnologias">Tecnologias</a> |
-  <a href ="#manual">Manual de Instalação</a>  | 
-  <a href ="#equipe"> Equipe</a> |
-</p>
+<ul align="left">
+  <li><a href ="#desafio"> Desafio</a></li>  
+  <li><a href= "#solucao"> Solução</a></li>
+  <li><a href ="#backlog"> Backlog do Produto</a></li>
+  <li><a href ="#dor">DoR</a></li>
+  <li><a href ="#dod">DoD</a></li>
+  <li><a href ="#sprint"> Cronograma de Sprints</a></li>
+  <li><a href ="#tecnologias">Tecnologias</a></li>
+  <li><a href ="#manual">Manual de Instalação</a></li>
+  <li><a href ="#equipe"> Equipe</a></li>
+</ul>
 
 > Status do Projeto: Em andamento ⏳
 >
@@ -25,41 +25,31 @@
 > 
 > Video do Projeto:  [Youtube]() 📽
 
-## 🏅 Desafio <a id="desafio"></a>
+## 🎯 Desafio <a id="desafio"></a>
 
 O desafio consiste em desenvolver uma plataforma única que centralize e padronize processos administrativos, comerciais e operacionais, facilitando a visualização das informações, notificações e relatórios, garantindo maior eficiência e controle para a empresa.
 
-## 🏅 Solução <a id="solucao"></a>
+## 💡 Solução <a id="solucao"></a>
 
-Para solucionar o problema, o Synch...
+Para solucionar o problema, o Synch 
 
 ---
 
 ## 📋 Backlog do Produto <a id="backlog"></a>
 
-| Rank | Prioridade | User Story                                                                                                                                                                                                     | Story Points | Sprint | Requisito do Cliente | Status |
-| :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: | :----: |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
-|    |      |   |            |       |                 |       |
+| Rank | Prioridade | User Story                                                                                                                                                                                                     | Estimativa | Sprint | Status |
+| :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: |
+| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |            |   1   |                 | 
+|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |            |   1   |                 | 
+|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |            |    1    |                |       |
+|  4  |      |   |            |       |                 |
+|   5 |      |   |            |       |                 |       
+|  6  |      |   |            |       |                 |       
+|   7 |      |   |            |       |                 |       
+|  8  |      |   |            |       |                 |       
+|   9 |      |   |            |       |                 |       
+|  10  |      |   |            |       |                 |       
+|  11  |      |   |            |       |                 |       
 
 ---
 
@@ -81,14 +71,23 @@ Para solucionar o problema, o Synch...
 
 | Sprint          |    Período    | Documentação                                     |
 | --------------- | :-----------: | ------------------------------------------------ |
-|  **SPRINT 1** | 08/09 - 28/09 | [Sprint 1 Docs]() |
-|  **SPRINT 2** | 06/10 - 26/10 | [Sprint 2 Docs]() |
-|  **SPRINT 3** | 03/11 - 23/11 | [Sprint 3 Docs]() |
+|  **SPRINT 1** | 08/09 - 28/09 |  |
+|  **SPRINT 2** | 06/10 - 26/10 |  |
+|  **SPRINT 3** | 03/11 - 23/11 |  |
 
 ## 💻 Tecnologias <a id="tecnologias"></a>
 
 <h4 align="center">
-</h4>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white"/>
+<img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML-FF7E00?style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-FFC30B?style=for-the-badge&logo=JavaScript&logoColor=black"/>
+<img src="https://img.shields.io/badge/MySQL-008ECC?style=for-the-badge&logo=MySQL&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS-A020F0?style=for-the-badge&logo=CSS&logoColor=white"/>
+<img src="https://img.shields.io/badge/discord-8DCFEC?style=for-the-badge&logo=discord&logoColor=black"/>
+ </h4>
 
 ## 📖 Manual de Instalação <a id="manual"></a>
 
