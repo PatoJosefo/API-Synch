@@ -16,7 +16,6 @@
   <li><a href ="#tecnologias">Tecnologias</a></li>
   <li><a href ="#manual">Manual de Instalação</a></li>
   <li><a href ="#equipe"> Equipe</a></li>
-  <li><a href ="./docs/sprint1.md"> sax</a></li>
 </ul>
 
 > Status do Projeto: Em andamento ⏳
@@ -47,11 +46,12 @@ Para solucionar o problema, o Synch
 |  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |                 |
 |   5 |   Alta   |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.  |            |       |                 |       
 |  6  |   Alta   |  Eu, como vendedor, desejo ter acesso a um relatório que apresente gráficos das vendas e clientes cadastrados com filtros de data, para facilitar a revisão das vendas.  |            |       |                 |       
-|   7 |      |   |            |       |                 |       
-|  8  |      |   |            |       |                 |       
-|   9 |      |   |            |       |                 |       
-|  10  |      |   |            |       |                 |       
-|  11  |      |   |            |       |                 |       
+|   7 |      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados  |            |       |                 |       
+|  8  |      |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos. |            |       |                 |       
+|   9 |      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.  |            |       |                 |       
+|  10  |      |  Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões. |            |       |                 |       
+|  11  |      |  Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.  |            |       |                 |       
+|  12  |      |  Eu, como administrador, gostaria que a tela de login apresentasse uma janela onde o funcionário consiga informar se está trabalhando presencialmente, online, se está em um evento ou em um treinamento, para termos maior controle dos dados de cada funcionário da empresa. |            |       |                 |       
 
 ---
 
@@ -90,6 +90,7 @@ Para solucionar o problema, o Synch
 <img src="https://img.shields.io/badge/MySQL-008ECC?style=for-the-badge&logo=MySQL&logoColor=white"/>
 <img src="https://img.shields.io/badge/CSS-A020F0?style=for-the-badge&logo=CSS&logoColor=white"/>
 <img src="https://img.shields.io/badge/discord-8DCFEC?style=for-the-badge&logo=discord&logoColor=black"/>
+<img src="https://img.shields.io/badge/react-FFFFFF?style=for-the-badge&logo=react&logoColor=black"/>
  </h4>
 
 ## 📖 Manual de Instalação <a id="manual"></a>
