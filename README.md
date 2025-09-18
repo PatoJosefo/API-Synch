@@ -16,6 +16,7 @@
   <li><a href ="#tecnologias">Tecnologias</a></li>
   <li><a href ="#manual">Manual de Instalação</a></li>
   <li><a href ="#equipe"> Equipe</a></li>
+  <li><a href ="./docs/sprint1.md"> sax</a></li>
 </ul>
 
 > Status do Projeto: Em andamento ⏳
@@ -40,10 +41,10 @@ Para solucionar o problema, o Synch
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                     | Estimativa | Sprint | Status |
 | :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: |
-| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |            |   1   |                 | 
-|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |            |   1   |                 | 
-|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |            |    1    |                |       |
-|  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |            |    1   |                 |
+| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |      8      |   1   |                 | 
+|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |     8       |   1   |                 | 
+|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |    8        |    1    |                |       |
+|  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |                 |
 |   5 |   Alta   |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.  |            |       |                 |       
 |  6  |   Alta   |  Eu, como vendedor, desejo ter acesso a um relatório que apresente gráficos das vendas e clientes cadastrados com filtros de data, para facilitar a revisão das vendas.  |            |       |                 |       
 |   7 |      |   |            |       |                 |       
