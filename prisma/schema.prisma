@@ -1,0 +1,250 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ===================
+// Tabelas Principais
+// ===================
+
+model Funcionario {
+  id          Int      @id @default(autoincrement())
+  cpf         String   @unique @map("func_cpf") @db.Char(11) // CPF adicionado, único e com tamanho fixo
+  nome        String   @map("func_nome") @db.VarChar(100)
+  endereco    String   @map("func_endereco") @db.VarChar(255)
+  genero      String   @map("func_genero") @db.VarChar(10)
+  telefone    String   @map("func_telefone") @db.VarChar(20)
+  cargo       String   @map("func_cargo") @db.VarChar(50)
+  email       String   @unique @map("func_email") @db.VarChar(255) // Email deve ser único
+  local       String   @map("func_local") @db.VarChar(100)
+  nivelAcesso String   @map("func_nivel_acesso") @db.VarChar(50)
+  senhaHash   String   @map("senha_hash") @db.VarChar(255)
+
+  // Auto-relacionamento para Gerente
+  gerenteId   Int?     @map("gerente_id")
+  gerente     Funcionario?  @relation("Gerencia", fields: [gerenteId], references: [id])
+  subordinados Funcionario[] @relation("Gerencia")
+
+  // Relacionamentos com outras tabelas
+  agendamentosInteracao AgendamentoInteracao[]
+  clientesGerenciados   Cliente[]
+  interacoesCliente     InteracaoCliente[]
+  eventosOrganizados    Evento[]
+  convitesEventos       FuncionariosConvidados[]
+  vendasRealizadas      Venda[]
+
+  @@map("Funcionario")
+}
+
+model Cliente {
+  id                Int      @id @default(autoincrement()) @map("cli_id")
+  nome              String   @map("cli_nome") @db.VarChar(100)
+  endereco          String   @map("cli_endereco") @db.VarChar(255)
+
+  // Relacionamento com Funcionario
+  funcionarioId     Int      @map("func_id")
+  funcionario       Funcionario @relation(fields: [funcionarioId], references: [id])
+  
+  // Relacionamento com Funil_Vendas
+  funilId           Int      @map("funil_id")
+  funilVendas       Funil_Vendas @relation(fields: [funilId], references: [id])
+
+  // Relacionamentos com outras tabelas
+  contatos          ContatoCliente[]
+  agendamentos      AgendamentoInteracao[]
+  historicoFunil    HistoricoFunil[]
+  interacoes        InteracaoCliente[]
+  vendas            Venda[]
+
+  @@map("Cliente")
+}
+
+model Funil_Vendas {
+  id            Int      @id @default(autoincrement()) @map("funil_id")
+  estagioNome   String   @map("estagio_nome") @db.VarChar(20)
+  
+  // Relacionamentos com outras tabelas
+  clientes      Cliente[]
+  historico     HistoricoFunil[]
+
+  @@map("Funil_Vendas")
+}
+
+model Evento {
+  id              Int      @id @default(autoincrement()) @map("evento_id")
+  titulo          String   @db.VarChar(100)
+  desc            String   @map("desc") @db.LongText
+  dataIni         DateTime @map("data_ini")
+  duracaoH        Int      @map("duracao_h")
+  link            String   @db.VarChar(255) // Corrigido para String
+  status          String   @db.VarChar(30)
+
+  // Relacionamento com Funcionario (organizador)
+  organizadorId   Int      @map("organizador_id")
+  organizador     Funcionario @relation(fields: [organizadorId], references: [id])
+  
+  // Relacionamentos com outras tabelas
+  funcionariosConvidados FuncionariosConvidados[]
+  notificacoes           Notificacao[]
+
+  @@map("Evento")
+}
+
+// ========================
+// Tabelas de Relacionamento
+// ========================
+
+model ContatoCliente {
+  id              Int      @id @default(autoincrement()) @map("Contato_cliente_id")
+  tipoContato     String   @map("tipo_contato") @db.VarChar(20)
+  valorContrato   String   @map("valor_contrato") @db.VarChar(255)
+  
+  // Relacionamento com Cliente
+  clienteId         Int      @map("Cliente_cli_id")
+  cliente           Cliente  @relation(fields: [clienteId], references: [id])
+
+  @@map("ContatoCliente")
+}
+
+model AgendamentoInteracao {
+  id              Int      @id @default(autoincrement()) @map("agendamento_interacao")
+  dataMarcada     DateTime @map("data_marcada")
+  tipoInteracao   String   @map("tipo_interacao") @db.VarChar(20)
+  status          String   @db.VarChar(20)
+  notas           String?  @db.VarChar(255)
+
+  // Relacionamento com Funcionario
+  funcionarioId   Int      @map("func_id")
+  funcionario     Funcionario @relation(fields: [funcionarioId], references: [id])
+  
+  // Relacionamento com Cliente
+  clienteId       Int      @map("cli_id")
+  cliente         Cliente  @relation(fields: [clienteId], references: [id])
+
+  @@map("AgendamentoInteracao")
+}
+
+model HistoricoFunil {
+  id                Int      @id @default(autoincrement()) @map("historico_id")
+  dataMovimentacao  DateTime @map("data_movimentacao") @db.Timestamp()
+
+  // Relacionamento com Cliente
+  clienteId         Int      @map("cli_id")
+  cliente           Cliente  @relation(fields: [clienteId], references: [id])
+  
+  // Relacionamento com Funil_Vendas
+  funilId           Int      @map("funil_id")
+  funilVendas       Funil_Vendas @relation(fields: [funilId], references: [id])
+
+  @@map("HistoricoFunil")
+}
+
+model InteracaoCliente {
+  id                  Int      @id @default(autoincrement()) @map("interacao_id")
+  dataInteracao       DateTime @map("data_interacao") @db.Date
+  tipoInteracao       String   @map("tipo_interacao") @db.VarChar(20)
+  relatorioInteracao  String   @map("relatorio_interacao") @db.VarChar(255)
+
+  // Relacionamento com Funcionario
+  funcionarioId       Int      @map("func_id")
+  funcionario         Funcionario @relation(fields: [funcionarioId], references: [id])
+  
+  // Relacionamento com Cliente
+  clienteId           Int      @map("cli_id")
+  cliente             Cliente  @relation(fields: [clienteId], references: [id])
+
+  @@map("InteracaoCliente")
+}
+
+model Venda {
+  id          Int      @id @default(autoincrement()) @map("ven_id")
+  dataVenda   DateTime @map("data_venda") @db.Date
+  total       Decimal  @db.Decimal(10, 2) // Corrigido para Decimal
+
+  // Relacionamento com Funcionario
+  funcionarioId Int    @map("func_id")
+  funcionario   Funcionario @relation(fields: [funcionarioId], references: [id])
+  
+  // Relacionamento com Cliente
+  clienteId   Int      @map("cli_id")
+  cliente     Cliente  @relation(fields: [clienteId], references: [id])
+
+  @@map("Venda")
+}
+
+// ========================
+// Tabelas de Eventos e Notificações (Pivots)
+// ========================
+
+model FuncionariosConvidados {
+  // Chave Composta
+  eventoId    Int @map("evento_id")
+  funcionarioId Int @map("func_id")
+  
+  // Relacionamentos
+  evento      Evento @relation(fields: [eventoId], references: [id])
+  funcionario Funcionario @relation(fields: [funcionarioId], references: [id])
+
+  // Relacionamentos com outras tabelas
+  notificacoes NotificacaoConvidados[]
+  presenca     Presenca?
+
+  @@id([eventoId, funcionarioId])
+  @@map("FuncionariosConvidados")
+}
+
+model Notificacao {
+  id        Int      @id @default(autoincrement()) @map("notifica_id")
+  titulo    String   @map("notifica_titulo") @db.VarChar(100)
+  corpo     String?  @map("notifica_corpo") @db.LongText
+
+  // Relacionamento com Evento
+  eventoId  Int      @map("Evento_evento_id")
+  evento    Evento   @relation(fields: [eventoId], references: [id])
+
+  // Relacionamento com NotificacaoConvidados
+  convidados NotificacaoConvidados[]
+
+  @@map("Notificacao")
+}
+
+model NotificacaoConvidados {
+  // Chave Composta
+  eventoId        Int @map("evento_id")
+  funcionarioId   Int @map("func_id")
+  notificacaoId   Int @map("notifica_id")
+
+  statusLeitura   Boolean  @map("status_leitura")
+  dataLeitura     DateTime? @map("data_leitura")
+  prioridade      String   @db.VarChar(20)
+
+  // Relacionamentos
+  convite         FuncionariosConvidados @relation(fields: [eventoId, funcionarioId], references: [eventoId, funcionarioId])
+  notificacao     Notificacao @relation(fields: [notificacaoId], references: [id])
+  
+  @@id([eventoId, funcionarioId, notificacaoId])
+  @@map("NotificacaoConvidados")
+}
+
+model Presenca {
+  id              Int      @id @default(autoincrement()) @map("presenca_id")
+  presente        Boolean
+  razaoRecusa     String?  @map("razao_recusa") @db.LongText
+  dataTermino     DateTime? @map("data_termino")
+  linkFeedback    String?  @map("link_feedback") @db.LongText
+
+  // Relacionamento com FuncionariosConvidados (Chave Única)
+  eventoId        Int @map("evento_id")
+  funcionarioId   Int @map("func_id")
+  convite         FuncionariosConvidados @relation(fields: [eventoId, funcionarioId], references: [eventoId, funcionarioId])
+
+  @@unique([eventoId, funcionarioId]) // Garante que só há uma presença por convidado no evento
+  @@map("Presenca")
+}
