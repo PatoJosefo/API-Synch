@@ -15,7 +15,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "concurrently \"tsc --watch\" \"nodemon\""
+    "dev": "concurrently \"tsc --watch\" \"nodemon\"",
+    "migrate:dev": "prisma migrate dev --schema ./src/prisma/schema.prisma",
+    "generate": "prisma generate --schema ./src/prisma/schema.prisma",
+    "studio": "prisma studio --schema ./src/prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^6.16.2",
