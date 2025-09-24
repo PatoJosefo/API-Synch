@@ -3,6 +3,8 @@ import cors from 'cors';
 import { prisma } from './prisma.js';
 import { _funcionario } from './_funcionario.js';
 import { parse } from 'path';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
 const app = express();
 const PORT = 3000;
@@ -132,6 +134,50 @@ app.delete('/funcionarios/:id', async (req: Request, res: Response) => {
     }
 });
 
+app.post('/login', async (req:Request, res:Response)=> {
+    try {
+        const { cpf, senha } = req.body;
+
+        if (!cpf || !senha) {
+            return res.status(400).json({ message: 'CPF e senha são obrigatórios.' });
+        }
+
+        const funcionario = await prisma.funcionario.findUnique({
+            where: { cpf: cpf},
+        });
+
+        if (!funcionario) {
+            return res.status(401).json({ message: 'Credenciais inválidas.' });
+        }
+
+        const senha_valida = await bcrypt.compare(senha, funcionario.senhaHash);
+
+        if (!senha_valida) {
+            return res.status(401).json({ message: 'Credenciais inválidas.' });
+        }
+
+        if (!process.env.JWT_SECRET) {
+            throw new Error ("A chave JWT não foi definida no .env");
+        }
+
+        const token = jwt.sign(
+            {
+                id: funcionario.id,
+                nivelAcesso: funcionario.nivelAcesso
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: '8h' }
+        );
+
+        const { senhaHash, ...funcionarioSemSenha } = funcionario;
+        res.status(200).json({ funcionario: funcionarioSemSenha, token });
+
+    } catch (error) {
+        console.error('Erro no login:', error);
+        res.status(500).json({ message: 'Ocorreu um erro interno no servidor.' });
+    }
+});
+
 
 app.listen(PORT, () => {
     console.log(`servidor pronto e operante em: http://localhost:${PORT}`);
@@ -140,4 +186,5 @@ app.listen(PORT, () => {
     console.log(' - GET http://localhost:3000/funcionarios');
     console.log(' - PUT http://localhost:3000/funcionarios');
     console.log(' - DELETE http://localhost:3000/funcionarios');
+    console.log(' - POST http://localhost:3000/login');
 })
