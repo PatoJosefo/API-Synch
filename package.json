@@ -1,8 +1,8 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "",
-  "main": "",
+  "description": "<h1 align=\"center\"> Projeto API Synch </h1>",
+  "main": "index.js",
   "type": "module",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "concurrently \"tsc --watch\" \"nodemon\"",
+    "dev": "concurrently \"tsc --watch\" \"nodemon --watch src --exec ts-node src/server.ts\"",
     "migrate:dev": "prisma migrate dev --schema ./src/prisma/schema.prisma",
     "generate": "prisma generate --schema ./src/prisma/schema.prisma",
     "studio": "prisma studio --schema ./src/prisma/schema.prisma"
@@ -26,6 +26,16 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "prisma": "^6.16.2"
-  }
-
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatoJosefo/API-Synch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatoJosefo/API-Synch/issues"
+  },
+  "homepage": "https://github.com/PatoJosefo/API-Synch#readme"
 }
