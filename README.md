@@ -78,6 +78,16 @@ Para solucionar o problema, o Synch
 |  **SPRINT 2** | 06/10 - 26/10 |  |   |
 |  **SPRINT 3** | 03/11 - 23/11 |  |   |
 
+---
+
+## 🎥 Mídia <a id="tecnologias"></a>
+
+### Protótipo do Figma
+
+https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
+
+---
+
 ## 💻 Tecnologias <a id="tecnologias"></a>
 
 <h4 align="center">
