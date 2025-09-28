@@ -235,11 +235,3 @@ app.listen(PORT, () => {
   console.log(`- GET    http://localhost:${PORT}/eventos/usuario/:funcionarioId`);
   console.log(`- PUT    http://localhost:${PORT}/eventos/:eventoId/participantes/:funcionarioId`);
 });
-    console.log(`servidor pronto e operante em: http://localhost:${PORT}`);
-    console.log('Usar o Imsomnia ou Postman pra testar os endpoints:');
-    console.log(' - POST http://localhost:3000/funcionarios');
-    console.log(' - GET http://localhost:3000/funcionarios');
-    console.log(' - PUT http://localhost:3000/funcionarios');
-    console.log(' - DELETE http://localhost:3000/funcionarios');
-    console.log(' - POST http://localhost:3000/login');
-})
