@@ -1,8 +1,8 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "",
-  "main": "",
+  "description": "<h1 align=\"center\"> Projeto API Synch </h1>",
+  "main": "index.js",
   "type": "module",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -25,8 +25,21 @@
     "@prisma/client": "^6.16.2",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^6.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatoJosefo/API-Synch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatoJosefo/API-Synch/issues"
+  },
+  "homepage": "https://github.com/PatoJosefo/API-Synch#readme"
   }
 }
