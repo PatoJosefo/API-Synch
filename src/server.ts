@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express, { type Request, type Response } from 'express';
 import cors from 'cors';
 import { prisma } from './prisma.js';
@@ -11,7 +12,9 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// POST 
+//                      FUNCIONÁRIOS
+
+
 app.post('/funcionarios', async (req: Request, res: Response) => {
   try {
     const dados_funcionario = new _funcionario(req.body);
@@ -53,7 +56,7 @@ app.post('/funcionarios', async (req: Request, res: Response) => {
   }
 });
 
-// GET 
+
 app.get('/funcionarios', async (_req: Request, res: Response) => {
   try {
     const funcionarios = await prisma.funcionario.findMany({
@@ -76,7 +79,7 @@ app.get('/funcionarios', async (_req: Request, res: Response) => {
   }
 });
 
-// PUT 
+
 app.put('/funcionarios/:id', async (req: Request, res: Response) => {
   try {
     const idParam = req.params.id; 
@@ -148,7 +151,7 @@ app.put('/funcionarios/:id', async (req: Request, res: Response) => {
   }
 });
 
-// DELETE 
+
 app.delete('/funcionarios/:id', async (req: Request, res: Response) => {
   try {
     const idParam = req.params.id; 
@@ -173,17 +176,29 @@ app.delete('/funcionarios/:id', async (req: Request, res: Response) => {
   }
 });
 
+
+
+
+
+
+
 //                                EVENTOS
 
 app.post('/eventos', async (req: Request, res: Response) => {
+  console.log('--- NOVA REQUISIÇÃO POST /eventos ---');
+  console.log('Body recebido:', JSON.stringify(req.body, null, 2));
+
   try {
-    
     const { titulo, desc, dataIni, duracaoH, link, organizadorId, convidados } = req.body;
     
     if (!titulo || !dataIni || !organizadorId) {
       return res.status(400).json({ message: 'titulo, dataIni e organizadorId são obrigatórios.' });
     }
     
+    const organizadorIdNumerico = parseInt(organizadorId, 10);
+    if (isNaN(organizadorIdNumerico)) {
+      return res.status(400).json({ message: 'organizadorId deve ser um número válido.' });
+    }
     
     const evento = await prisma.evento.create({
       data: {
@@ -193,23 +208,48 @@ app.post('/eventos', async (req: Request, res: Response) => {
         duracaoH: duracaoH ?? 1,
         link: link || '',
         status: 'pendente',
-        organizadorId: organizadorId
+        organizadorId: organizadorIdNumerico,
       }
     });
-    
+
+    console.log(`Evento #${evento.id} criado com sucesso.`);
     
     if (Array.isArray(convidados) && convidados.length > 0) {
-      const createData = convidados.map((funcId: number) => ({
-        eventoId: evento.id,
-        funcionarioId: Number(funcId)
-      }));
+      console.log('Encontrado array de convidados:', convidados);
       
-      await prisma.funcionariosConvidados.createMany({ data: createData, skipDuplicates: true });
+      const createData = convidados.map((funcId: any) => {
+        const idNumerico = parseInt(funcId, 10);
+        if (isNaN(idNumerico)) {
+
+          throw new Error(`ID de convidado inválido encontrado: ${funcId}`);
+        }
+        return {
+          eventoId: evento.id,
+          funcionarioId: idNumerico,
+        };
+      });
+
+      console.log('Dados preparados para createMany:', JSON.stringify(createData, null, 2));
+      
+      const resultadoConvites = await prisma.funcionariosConvidados.createMany({ data: createData, skipDuplicates: true });
+      
+      console.log(`${resultadoConvites.count} convites foram criados.`);
+    } else {
+      console.log('Nenhum array de convidados foi fornecido ou estava vazio.');
     }
     
     return res.status(201).json(evento);
+
   } catch (error: any) {
-    console.error('Erro ao criar evento:', error);
+    console.error('ERRO DETALHADO ao criar evento:', error);
+
+    if (error.code === 'P2003') {
+      return res.status(400).json({ 
+        message: 'Falha de chave estrangeira. Verifique se o organizadorId ou os IDs de convidados realmente existem na tabela de funcionários.',
+        details: error.meta,
+      });
+    }
+    
     res.status(500).json({ message: 'Erro interno ao criar evento.' });
   }
 });

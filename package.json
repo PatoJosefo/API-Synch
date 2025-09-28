@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "concurrently \"tsc --watch\" \"nodemon --watch src --exec ts-node src/server.ts\"",
+    "dev": "concurrently \"tsc --watch\" \"nodemon\"",
     "migrate:dev": "prisma migrate dev --schema ./src/prisma/schema.prisma",
     "generate": "prisma generate --schema ./src/prisma/schema.prisma",
     "studio": "prisma studio --schema ./src/prisma/schema.prisma"
@@ -24,6 +24,7 @@
     "@prisma/client": "^6.16.2",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "prisma": "^6.16.2"
   },
