@@ -23,7 +23,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        'localhost:3000/login', // Example API endpoint
+        'http://localhost:3000/login', // Example API endpoint
         newPost,
         {
           headers: {
