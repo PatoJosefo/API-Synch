@@ -5,9 +5,15 @@
       <h1 align="center"> Synch </h1>
 </p>
 
-## 🎯 Desafio <a id="desafio"></a>
+## 3️⃣ Desafio Sprint 3 <a id="visao_geral"></a>
 
-O desafio consiste em desenvolver uma plataforma única que centralize e padronize processos administrativos, comerciais e operacionais, facilitando a visualização das informações, notificações e relatórios, garantindo maior eficiência e controle para a empresa.
+Atualmente, a empresa de logística Newe enfrenta diversos empecilhos ocasionados pela fragmentação de ferramentas para automatização de seu sistema. Essa descentralização dos processos administrativos intensifica a propensão a ocasionais problemas, e dificulta a produtividade e proatividade da equipe.
+
+Levando em consideração as problemáticas apresentadas acima, o Synch desenvolveu e implementou as seguintes tecnologias para ajudar a empresa na terceira sprint:
+
+* 
+*
+* 
 
 ---
 
@@ -19,20 +25,6 @@ O desafio consiste em desenvolver uma plataforma única que centralize e padroni
 |    |      |   |            |   3   |                 | 
 |    |      |    |            |    3    |                |       |
 |    |      |    |           |    3   |                 |
-
----
-
-## 🏃‍ DoR - Definition of Ready <a id="dor"></a>
-
-*
-*
-*
-
-## 🏆 DoD - Definition of Done <a id="dod"></a>
-
-* 
-* 
-* 
 
 ---
 

@@ -5,9 +5,17 @@
       <h1 align="center"> Synch </h1>
 </p>
 
-## 🎯 Desafio <a id="desafio"></a>
+## 1️⃣ Desafio Sprint 1 <a id="visao_geral"></a>
 
-O desafio consiste em desenvolver uma plataforma única que centralize e padronize processos administrativos, comerciais e operacionais, facilitando a visualização das informações, notificações e relatórios, garantindo maior eficiência e controle para a empresa.
+Atualmente, a empresa de logística Newe enfrenta diversos empecilhos ocasionados pela fragmentação de ferramentas para automatização de seu sistema. Essa descentralização dos processos administrativos intensifica a propensão a ocasionais problemas, e dificulta a produtividade e proatividade da equipe.
+
+Levando em consideração as problemáticas apresentadas acima, o Synch desenvolveu e implementou as seguintes tecnologias para ajudar a empresa na primeira sprint:
+
+* Prototipação do site pelo Figma
+* Criação de um banco de dados unificado para o site
+* Criação de uma tela de cadastros e login 
+* Definição da estrutura base do site e implementação de uma página de formulários funcional
+* Integração do banco de dados com o site
 
 ---
 
@@ -15,25 +23,22 @@ O desafio consiste em desenvolver uma plataforma única que centralize e padroni
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                     | Estimativa | Sprint | Status |
 | :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: |
-| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |      8      |   1   |                 | 
-|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |     8       |   1   |                 | 
-|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |    8        |    1    |                |       |
-|  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |                 |
+| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |      8      |   1   |         ✅        | 
+|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |     8       |   1   |        ✅         | 
+|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |    8        |    1    |       ✅         |       |
+|  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |         ✅        |
 
 ---
 
-## 🏃‍ DoR - Definition of Ready <a id="dor"></a>
+## 🎥 Mídia <a id="midia"></a>
 
-* Criação do design do Figma
-* Definição de todas as User Stories
-* Distribuição de tasks
-* Criação de um banco de dados
+## Protótipo do Figma
 
-## 🏆 DoD - Definition of Done <a id="dod"></a>
+https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
 
-* 
-* 
-* 
+<p>Durante a primeira sprint, a nossa equipe desenvolveu um protótipo do figma para facilitar o processo de criação do site em typescript. No protótipo é possivel observar todas as funcionalidades do site apresentadas de maneira mais simplificada.</p>
+
+## Site Sprint 1
 
 ---
 

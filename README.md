@@ -7,12 +7,12 @@
 
 
 <ul align="left">
-  <li><a href ="#desafio"> Desafio</a></li>  
-  <li><a href= "#solucao"> Solução</a></li>
+  <li><a href ="#visao_geral"> Visao Geral</a></li>  
   <li><a href ="#backlog"> Backlog do Produto</a></li>
   <li><a href ="#dor">DoR</a></li>
   <li><a href ="#dod">DoD</a></li>
   <li><a href ="#sprint"> Cronograma de Sprints</a></li>
+  <li><a href ="#midia">Mídia</a></li>
   <li><a href ="#tecnologias">Tecnologias</a></li>
   <li><a href ="#manual">Manual de Instalação</a></li>
   <li><a href ="#equipe"> Equipe</a></li>
@@ -20,19 +20,26 @@
 
 > Status do Projeto: Em andamento ⏳
 >
-> Relatório de Testes: [PDF]() 📊
+> Relatório de Testes: [PDF]() 📋
 >
-> Pasta de Documentação: [Link]() 📄
+> Pasta de Documentação: [Link](docs) 📁
 > 
 > Video do Projeto:  [Youtube]() 📽
 
-## 🎯 Desafio <a id="desafio"></a>
+---
+
+## 👀 Visão Geral <a id="visao_geral"></a>
 
 O desafio consiste em desenvolver uma plataforma única que centralize e padronize processos administrativos, comerciais e operacionais, facilitando a visualização das informações, notificações e relatórios, garantindo maior eficiência e controle para a empresa.
 
-## 💡 Solução <a id="solucao"></a>
+Atualmente, a empresa de logística Newe enfrenta diversos empecilhos ocasionados pela fragmentação de ferramentas para automatização de seu sistema. Essa descentralização dos processos administrativos intensifica a propensão a ocasionais problemas, e dificulta a produtividade e proatividade da equipe.
 
-Para solucionar o problema, o Synch 
+Levando em consideração as problemáticas apresentadas acima, o Synch propõe as seguintes soluções para a empresa:
+
+* Unificação das checklists 
+* Criação de um relatório de funil de vendas (CRM) e histórico de interação com clientes
+* Facilitação dos processos por meio da integração das ferramentas de armazenamento de dados em um único ambiente
+* Automatização dos processos de armazenamento de dados, e gestão de treinamentos e eventos
 
 ---
 
@@ -40,10 +47,10 @@ Para solucionar o problema, o Synch
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                     | Estimativa | Sprint | Status |
 | :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: |
-| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |      8      |   1   |                 | 
-|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |     8       |   1   |                 | 
-|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |    8        |    1    |                |       |
-|  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |                 |
+| 1   |   Alta   |  Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.  |      8      |   1   |         ✅        | 
+|   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |     8       |   1   |        ✅         | 
+|   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |    8        |    1    |       ✅         |       |
+|  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |         ✅        |
 |   5 |   Alta   |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.  |            |       |                 |       
 |  6  |   Alta   |  Eu, como vendedor, desejo ter acesso a um relatório que apresente gráficos das vendas e clientes cadastrados com filtros de data, para facilitar a revisão das vendas.  |            |       |                 |       
 |   7 |      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados  |            |       |                 |       
@@ -64,9 +71,12 @@ Para solucionar o problema, o Synch
 
 ## 🏆 DoD - Definition of Done <a id="dod"></a>
 
-* 
-* 
-* 
+* Revisão e atualização da documentação
+* Validação e teste dos códigos do front-end e do back-end
+* Aprovação do cliente, PO e Scrum Master
+* Documentação bem estruturada e totalmente atualizada
+* Integração de todos os códigos (back-end e front-end)
+* Finalização de todos os cenários e validação do cliente
 
 ---
 
@@ -74,17 +84,19 @@ Para solucionar o problema, o Synch
 
 | Sprint          |    Período    | Documentação                                     | Status |
 | --------------- | :-----------: | ------------------------------------------------ | ----- |
-|  **SPRINT 1** | 08/09 - 28/09 |  |  Em andamento ⏱️  |
-|  **SPRINT 2** | 06/10 - 26/10 |  |   |
-|  **SPRINT 3** | 03/11 - 23/11 |  |   |
+|  **SPRINT 1** | 08/09 - 28/09 | [Sprint1](docs/sprints/sprint1.md) |  Concluído ✅  |
+|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) |   |
+|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) |   |
 
 ---
 
-## 🎥 Mídia <a id="tecnologias"></a>
+## 🎥 Mídia <a id="midia"></a>
 
-### Protótipo do Figma
+## Protótipo do Figma
 
 https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
+
+## Site Sprint 1
 
 ---
 
@@ -102,6 +114,8 @@ https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
 <img src="https://img.shields.io/badge/discord-8DCFEC?style=for-the-badge&logo=discord&logoColor=black"/>
 <img src="https://img.shields.io/badge/react-FFFFFF?style=for-the-badge&logo=react&logoColor=black"/>
  </h4>
+
+---
 
 ## 📖 Manual de Instalação <a id="manual"></a>
 
