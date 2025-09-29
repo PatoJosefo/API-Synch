@@ -39,6 +39,7 @@ model Funcionario {
   eventosOrganizados    Evento[]
   convitesEventos       FuncionariosConvidados[]
   vendasRealizadas      Venda[]
+  formTemplatesCriados  FormTemplate[] @relation("TemplatesCriadosPorFuncionario")
 
   @@map("Funcionario")
 }
@@ -247,4 +248,17 @@ model Presenca {
 
   @@unique([eventoId, funcionarioId]) // Garante que só há uma presença por convidado no evento
   @@map("Presenca")
+}
+
+model FormTemplate {
+  id                  Int @id @default(autoincrement())
+  nome                String
+  descricao           String?
+  estrutura           Json
+  criadoPorId       Int @map("criado_por_id")
+  criadoPor          Funcionario @relation("TemplatesCriadosPorFuncionario", fields: [criadoPorId], references:[id])
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  @@map("form_templates")
 }

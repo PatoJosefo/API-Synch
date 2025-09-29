@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE `Funcionario` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `func_cpf` VARCHAR(11) NOT NULL,
+    `func_cpf` CHAR(11) NOT NULL,
     `func_nome` VARCHAR(100) NOT NULL,
     `func_endereco` VARCHAR(255) NOT NULL,
     `func_genero` VARCHAR(10) NOT NULL,
@@ -151,6 +151,19 @@ CREATE TABLE `Presenca` (
     PRIMARY KEY (`presenca_id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- CreateTable
+CREATE TABLE `form_templates` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nome` VARCHAR(191) NOT NULL,
+    `descricao` VARCHAR(191) NULL,
+    `estrutura` JSON NOT NULL,
+    `criado_por_id` INTEGER NOT NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updated_at` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- AddForeignKey
 ALTER TABLE `Funcionario` ADD CONSTRAINT `Funcionario_gerente_id_fkey` FOREIGN KEY (`gerente_id`) REFERENCES `Funcionario`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
@@ -207,3 +220,6 @@ ALTER TABLE `NotificacaoConvidados` ADD CONSTRAINT `NotificacaoConvidados_notifi
 
 -- AddForeignKey
 ALTER TABLE `Presenca` ADD CONSTRAINT `Presenca_evento_id_func_id_fkey` FOREIGN KEY (`evento_id`, `func_id`) REFERENCES `FuncionariosConvidados`(`evento_id`, `func_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `form_templates` ADD CONSTRAINT `form_templates_criado_por_id_fkey` FOREIGN KEY (`criado_por_id`) REFERENCES `Funcionario`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
