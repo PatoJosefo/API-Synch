@@ -39,7 +39,7 @@ https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
 <p>Durante a primeira sprint, a nossa equipe desenvolveu um protótipo do figma para facilitar o processo de criação do site em typescript. No protótipo é possivel observar todas as funcionalidades do site apresentadas de maneira mais simplificada.</p>
 
 ## Site Sprint 1
-
+<p></p>
 ---
 
 ## 🎓 Equipe <a id="equipe"></a>
