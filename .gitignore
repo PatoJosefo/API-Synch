@@ -3,6 +3,7 @@ node_modules
 .env
 
 /src/generated/prisma
+/src/generated/prisma/migrations
 out/
 node_modules/
 npm-debug.log
