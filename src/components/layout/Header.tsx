@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
+
+  const navigate = useNavigate()
+
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4 shadow-sm">
       <div className="flex items-center justify-between">
@@ -12,8 +16,8 @@ const Header: React.FC = () => {
         
         
         <nav className="hidden md:flex space-x-4">
-          <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">Perfil</a>
-          <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">Sair</a>
+          <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">Perfil</a> <br />
+          <a href="#" className="text-blue-600 hover:text-blue-500 font-medium" onClick={() => navigate('/')}>Sair</a>
         </nav>
       </div>
     </header>

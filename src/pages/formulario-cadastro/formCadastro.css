@@ -1,9 +1,33 @@
 @import "tailwindcss"; 
 
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  
+  --sidebar-bg: #1e293b; 
+  --sidebar-text: #f1f5f9;
+  --sidebar-hover: #334155;
+  --sidebar-border: #475569;
+}
 
 html, body, #root {
   overflow-x: hidden;
   width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {

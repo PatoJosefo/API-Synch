@@ -4,11 +4,11 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Dashboard', path: '/' },
-    { label: 'Formulários', path: '/forms' },
-    { label: 'Veículos', path: '/vehicles' },
-    { label: 'Relatórios', path: '/reports' },
-    { label: 'Configurações', path: '/settings' },
+    { label: 'Dashboard', path: '#' },
+    { label: 'Formulários', path: '##' },
+    { label: 'Veículos', path: '#' },
+    { label: 'Relatórios', path: '##' },
+    { label: 'Configurações', path: '#' },
   ];
 
   return (
@@ -16,9 +16,7 @@ const Sidebar = () => {
       
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-          onClick={() => setIsOpen(false)}
-        />
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={() => setIsOpen(false)}/>
       )}
 
       

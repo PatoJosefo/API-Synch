@@ -1,10 +1,10 @@
 import React from 'react'
-import './formCadastro.css'
 import Sidebar from '../../components/layout/Sidebar'
 import Header from '../../components/layout/Header'
 import FormField from '../../components/forms/FormsField'
 import FileUpload from '../../components/forms/FileUpload'
 import AddressSection from '../../components/forms/AddressSection'
+import './formCadastro.css'
 
 const formCadastro: React.FC = () => {
   return (
