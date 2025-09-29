@@ -1,6 +1,7 @@
 import Login from "./pages/Login/Login"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Teste from './pages/teste/teste';
+import FormCadastro from './pages/formulario-cadastro/formCadastro';
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login/>}/>
-          <Route path="/Teste" element={<Teste/>}></Route>
+          <Route path="/Teste" element={<Teste/>}/>
+          <Route path="/" element={<FormCadastro/>}/>
         </Routes>
 
       </BrowserRouter>
@@ -20,3 +22,4 @@ function App() {
 }
 
 export default App
+
