@@ -51,14 +51,14 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 |   2 |   Alta   |  Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.  |     8       |   1   |        ✅         | 
 |   3 |   Alta   |  Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.  |    8        |    1    |       ✅         |       |
 |  4  |   Alta   |  Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.  |       5     |    1   |         ✅        |
-|   5 |   Alta   |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.  |            |       |                 |       
-|  6  |   Alta   |  Eu, como vendedor, desejo ter acesso a um relatório que apresente gráficos das vendas e clientes cadastrados com filtros de data, para facilitar a revisão das vendas.  |            |       |                 |       
-|   7 |      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados  |            |       |                 |       
-|  8  |      |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos. |            |       |                 |       
-|   9 |      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.  |            |       |                 |       
-|  10  |      |  Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões. |            |       |                 |       
-|  11  |      |  Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.  |            |       |                 |       
-|  12  |      |  Eu, como administrador, gostaria que a tela de login apresentasse uma janela onde o funcionário consiga informar se está trabalhando presencialmente, online, se está em um evento ou em um treinamento, para termos maior controle dos dados de cada funcionário da empresa. |            |       |                 |       
+|   5 |   ?   |  Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.  |       ?     |     2  |    🕗             |       
+|  6  |   ?   |  Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença  |     ?       |     2  |    🕗             |       2
+|   7 |    ?  | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.  |     ?       |    2   |    🕗             |       
+|  8  |    ?  |  Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento. |    ?        |     2  |     🕗            |       
+|   9 |    ?  | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.  |        ?    |    3   |   ❌              |       
+|  10  |    ?  |  Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões. |      ?      |     3  |    ❌             |       
+|  11  | ?    |  Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.  |      ?      |   3    |     ❌            |       
+|  12  |    ?  | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados |     ?       |    3   |   ❌              |       
 
 ---
 
@@ -85,8 +85,8 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 | Sprint          |    Período    | Documentação                                     | Status |
 | --------------- | :-----------: | ------------------------------------------------ | ----- |
 |  **SPRINT 1** | 08/09 - 28/09 | [Sprint1](docs/sprints/sprint1.md) |  Concluído ✅  |
-|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) |   |
-|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) |   |
+|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) | Em andamento 🕗  |
+|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) | Não iniciada ❌  |
 
 ---
 
@@ -139,17 +139,24 @@ https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
       <th>Github</th>
       <th>Linkedin</th>
     </tr>
+      <tr>
+      <td><img src="https://github.com/user-attachments/assets/16bd147e-facd-4c81-b7fe-fa69385774e7" width="60px"></td>
+      <td>Giovanni Martins</td>
+      <td>Product Owner</td>
+      <td><a href="https://github.com/Giommn"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
+      <td><a href="https://www.linkedin.com/in/giovanni-martins-216995356"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
+    </tr>
     <tr>
       <td><img src="https://github.com/user-attachments/assets/b0c69d8e-1155-4c45-952d-ff1d140e473a" width="60px"></td>
       <td>Pedro Alkmim</td>
-      <td>Product Owner</td>
+      <td>Scrum Master</td>
       <td><a href="https://github.com/PedroAlkmim"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/pedro-alkmim-168690358/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
       <td><img width="60px" alt="Joao-Ed" src="https://github.com/user-attachments/assets/3879303f-c692-48dd-a2cb-f83933b1fc0d" /></td>
       <td>João Eduardo</td>
-      <td>Scrum Master</td>
+      <td>Desenvolvedor</td>
       <td><a href="https://github.com/joao-ed252"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/joão-eduardo-o-9110332a2"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
@@ -159,13 +166,6 @@ https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
       <td>Desenvolvedor</td>
       <td><a href="https://github.com/PatoJosefo"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
       <td><a href="https://www.linkedin.com/in/rafaelguimaraesoliveira"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
-    </tr>
-    <tr>
-      <td><img src="https://github.com/user-attachments/assets/16bd147e-facd-4c81-b7fe-fa69385774e7" width="60px"></td>
-      <td>Giovanni Martins</td>
-      <td>Desenvolvedor</td>
-      <td><a href="https://github.com/Giommn"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></td>
-      <td><a href="https://www.linkedin.com/in/giovanni-martins-216995356"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></td>
     </tr>
     <tr>
       <td><img src="https://github.com/user-attachments/assets/0f69aca5-818b-49eb-a831-2f69c539fcd9" width="60px"></td>
