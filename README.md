@@ -96,7 +96,15 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 
 
+https://github.com/user-attachments/assets/3e11e1ba-d62b-4eb8-9c98-ed04d72942c6
+
+
+
 ## Site Sprint 1
+
+
+
+https://github.com/user-attachments/assets/9401e390-4a80-4fc6-af4f-e2e27d5817e2
 
 
 ---
