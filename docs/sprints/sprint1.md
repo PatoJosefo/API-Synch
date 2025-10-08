@@ -36,10 +36,18 @@ Levando em consideração as problemáticas apresentadas acima, o Synch desenvol
 
 
 
+https://github.com/user-attachments/assets/da681d8d-043c-4a76-b993-59b935bded67
+
+
+
 <p>Durante a primeira sprint, a nossa equipe desenvolveu um protótipo do figma para facilitar o processo de criação do site em typescript. No protótipo é possivel observar todas as funcionalidades do site apresentadas de maneira mais simplificada.</p>
 
 ## Site Sprint 1
 <p>Durante a primeira sprint, a nossa equipe desenvolveu um site contendo 2 páginas, sendo uma de login e a outra de formulário. Na tela de login é possível entrar com sua conta de colaborador já cadastrada previamente. Na tela de formulário é possível preencher diferentes campos para cadastrar suas informações que serão futuramente analisadas pelo operacional, visando a prestação de serviços.</p>
+
+
+https://github.com/user-attachments/assets/1d1e9d4b-4e0b-4775-a3c4-e0d73af7a5af
+
 
 ---
 
