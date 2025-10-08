@@ -94,9 +94,10 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 ## Protótipo do Figma
 
-https://github.com/user-attachments/assets/b29358e9-e55d-4835-bdc5-9c1ccc3cc1a1
+
 
 ## Site Sprint 1
+
 
 ---
 
