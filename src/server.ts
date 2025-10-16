@@ -10,6 +10,7 @@ import { hashSync } from 'bcryptjs';
 import { CreateFormTemplate } from './form_template.js';
 import { UpdateFormTemplate } from './form_template.js';
 import 'dotenv/config';
+import { CreateCandidato } from './temp_form.js';
 
 const app = express();
 const PORT = 3000;
@@ -374,18 +375,286 @@ app.get ('/form-templates/:id', async (req: Request, res: Response) => {
     }
 });
 
+app.post('/candidatos', async (req: Request, res: Response) => {
+    try {
+        const dadosFormulario = new CreateCandidato(req.body);
+
+        const novo_agregado = await prisma.candidato.create({
+            data: {
+                nome: dadosFormulario.nome,
+                email: dadosFormulario.email,
+                telefone: dadosFormulario.telefone,
+                cidade: dadosFormulario.cidade,
+                estado: dadosFormulario.estado,
+                dataNascimento: dadosFormulario.dataNascimento,
+                genero: dadosFormulario.genero,
+                cpf: dadosFormulario.cpf,
+                bairro: dadosFormulario.bairro,
+                rua: dadosFormulario.rua,
+                numero: dadosFormulario.numero,
+                complemento: dadosFormulario.complemento ?? null,
+                cep: dadosFormulario.cep,
+            },
+        });
+
+        res.status(201).json(novo_agregado);
+    } catch (error: any) {
+        if (
+            error.message.includes('obrigatório') ||
+            error.message.includes('inválido') ||
+            error.message.includes('dígitos') ||
+            error.message.includes('caracteres') ||
+            error.message.includes('Idade')
+        ) {
+            return res.status(400).json({ message: error.message });
+        }
+
+        console.error('Erro ao criar formulário:', error);
+        res.status(500).json({ message: 'Erro interno no servidor.' });
+    }
+});
+
+app.get('/candidatos', async (_req: Request, res: Response) => {
+    try {
+      const { status } = _req.query;
+      const whereClause = status ? { status: String(status) } : {};
+
+      const candidatos = await prisma.candidato.findMany({
+        where: whereClause,
+        select: {
+          id: true,
+          nome: true,
+          email: true,
+          telefone: true,
+          cidade: true,
+          estado: true,
+          dataNascimento: true,
+          genero: true,
+          cpf: true,
+          bairro: true,
+          rua: true,
+          numero: true,
+          complemento: true,
+          cep: true,
+          status: true,
+          createdAt: true,
+        },
+        orderBy: { createdAt: 'desc' },
+      });
+
+      res.status(200).json(candidatos);
+    } catch (error) {
+      console.error('Erro ao listar candidatos:', error);
+      res.status(500).json({ message: 'Erro interno no servidor.' });
+    }
+  });
+
+app.post('/eventos', async (req: Request, res: Response) => {
+  console.log('--- NOVA REQUISIÇÃO POST /eventos ---');
+  console.log('Body recebido:', JSON.stringify(req.body, null, 2));
+
+  try {
+    const { titulo, desc, dataIni, duracaoH, link, organizadorId, convidados } = req.body;
+    
+    if (!titulo || !dataIni || !organizadorId) {
+      return res.status(400).json({ message: 'titulo, dataIni e organizadorId são obrigatórios.' });
+    }
+    
+    const organizadorIdNumerico = parseInt(organizadorId, 10);
+    if (isNaN(organizadorIdNumerico)) {
+      return res.status(400).json({ message: 'organizadorId deve ser um número válido.' });
+    }
+    
+    const evento = await prisma.evento.create({
+      data: {
+        titulo,
+        desc: desc || '',
+        dataIni: new Date(dataIni),
+        duracaoH: duracaoH ?? 1,
+        link: link || '',
+        status: 'pendente',
+        organizadorId: organizadorIdNumerico,
+      }
+    });
+
+    console.log(`Evento #${evento.id} criado com sucesso.`);
+    
+    if (Array.isArray(convidados) && convidados.length > 0) {
+      console.log('Encontrado array de convidados:', convidados);
+      
+      const createData = convidados.map((funcId: any) => {
+        const idNumerico = parseInt(funcId, 10);
+        if (isNaN(idNumerico)) {
+
+          throw new Error(`ID de convidado inválido encontrado: ${funcId}`);
+        }
+        return {
+          eventoId: evento.id,
+          funcionarioId: idNumerico,
+        };
+      });
+
+      console.log('Dados preparados para createMany:', JSON.stringify(createData, null, 2));
+      
+      const resultadoConvites = await prisma.funcionariosConvidados.createMany({ data: createData, skipDuplicates: true });
+      
+      console.log(`${resultadoConvites.count} convites foram criados.`);
+    } else {
+      console.log('Nenhum array de convidados foi fornecido ou estava vazio.');
+    }
+    
+    return res.status(201).json(evento);
+
+  } catch (error: any) {
+    console.error('ERRO DETALHADO ao criar evento:', error);
+
+    if (error.code === 'P2003') {
+      return res.status(400).json({ 
+        message: 'Falha de chave estrangeira. Verifique se o organizadorId ou os IDs de convidados realmente existem na tabela de funcionários.',
+        details: error.meta,
+      });
+    }
+    
+    res.status(500).json({ message: 'Erro interno ao criar evento.' });
+  }
+});
+
+app.get('/eventos/usuario/:funcionarioId', async (req: Request, res: Response) => {
+  try {
+    const idParam = req.params.funcionarioId;
+    if (!idParam) return res.status(400).json({ message: 'ID do funcionário é obrigatório.' });
+    const funcionarioId = Number(idParam);
+    if (isNaN(funcionarioId)) return res.status(400).json({ message: 'ID inválido.' });
+    
+    
+    const convites = await prisma.funcionariosConvidados.findMany({
+      where: { funcionarioId },
+      include: {
+        evento: {
+          include: {
+            organizador: { select: { id: true, nome: true, email: true } }
+          }
+        },
+        presenca: true 
+      },
+      orderBy: { evento: { dataIni: 'asc' } }
+    });
+    
+    
+    const resposta = convites.map(c => {
+      const e = c.evento;
+      return {
+        eventoId: e.id,
+        titulo: e.titulo,
+        desc: e.desc,
+        dataIni: e.dataIni,
+        duracaoH: e.duracaoH,
+        link: e.link,
+        statusEvento: e.status,
+        organizador: e.organizador,
+        respostaPresenca: c.presenca ? {
+          presente: c.presenca.presente,
+          razaoRecusa: c.presenca.razaoRecusa,
+          dataTermino: c.presenca.dataTermino
+        } : null
+      };
+    });
+    
+    return res.status(200).json(resposta);
+  } catch (error: any) {
+    console.error('Erro ao listar eventos do usuário:', error);
+    res.status(500).json({ message: 'Erro interno ao listar eventos.' });
+  }
+});
+
+app.put('/eventos/:id/status', async (req: Request, res: Response) => {
+  try {
+    const eventoId = Number(req.params.id);
+    const { status } = req.body;
+    
+    if (isNaN(eventoId)) return res.status(400).json({ message: 'ID inválido.' });
+    if (!['pendente', 'ativo', 'concluido', 'cancelado'].includes(status)) {
+      return res.status(400).json({ message: 'Status inválido.' });
+    }
+    
+    const eventoAtualizado = await prisma.evento.update({
+      where: { id: eventoId },
+      data: { status }
+    });
+    
+    return res.status(200).json(eventoAtualizado);
+  } catch (error: any) {
+    console.error('Erro ao atualizar status do evento:', error);
+    if (error.code === 'P2025') return res.status(404).json({ message: 'Evento não encontrado.' });
+    return res.status(500).json({ message: 'Erro interno ao atualizar status.' });
+  }
+});
+
+app.put('/eventos/:eventoId/participantes/:funcionarioId', async (req: Request, res: Response) => {
+  try {
+    const eventoId = Number(req.params.eventoId);
+    const funcionarioId = Number(req.params.funcionarioId);
+    
+    if (isNaN(eventoId) || isNaN(funcionarioId)) {
+      return res.status(400).json({ message: 'IDs inválidos.' });
+    }
+    
+    const { presente, razaoRecusa } = req.body;
+    
+    if (presente === undefined) {
+      return res.status(400).json({ message: 'Campo "presente" (true/false) é obrigatório.' });
+    }
+    
+    if (presente === false && (!razaoRecusa || String(razaoRecusa).trim() === '')) {
+      return res.status(400).json({ message: 'Justificativa obrigatória ao recusar.' });
+    }
+    
+    const upsertResult = await prisma.presenca.upsert({
+      where: {
+        eventoId_funcionarioId: { eventoId, funcionarioId }
+      },
+      update: {
+        presente,
+        razaoRecusa: presente ? null : String(razaoRecusa),
+        dataTermino: presente ? null : new Date()
+      },
+      create: {
+        eventoId,
+        funcionarioId,
+        presente,
+        razaoRecusa: presente ? null : String(razaoRecusa),
+        dataTermino: presente ? null : new Date()
+      }
+    });
+    
+    return res.status(200).json(upsertResult);
+    
+  } catch (error: any) {
+    console.error('Erro ao responder convite:', error);
+    if (error.code === 'P2025') return res.status(404).json({ message: 'Convite ou evento não encontrado.' });
+    return res.status(500).json({ message: 'Erro interno ao responder convite.' });
+  }
+});
+
+
 app.listen(PORT, () => {
     console.log(`servidor pronto e operante em: http://localhost:${PORT}`);
     console.log('Usar o Imsomnia ou Postman pra testar os endpoints:');
     console.log(' - POST http://localhost:3000/funcionarios');
     console.log(' - GET http://localhost:3000/funcionarios');
-    console.log(' - PUT http://localhost:3000/funcionarios');
-    console.log(' - DELETE http://localhost:3000/funcionarios');
+    console.log(' - PUT http://localhost:3000/funcionarios/:id');
+    console.log(' - DELETE http://localhost:3000/funcionarios/:id');
     console.log(' - POST http://localhost:3000/login');
     console.log('                                               ');
     console.log(' - POST http://localhost:3000/form-templates');
     console.log(' - GET http://localhost:3000/form-templates');
-    console.log(' - PUT http://localhost:3000/form-templates');
-    console.log(' - DELETE http://localhost:3000/form-templates');
+    console.log(' - PUT http://localhost:3000/form-templates/:id');
+    console.log(' - DELETE http://localhost:3000/form-templates/:id');
     console.log(' - GET http://localhost:3000/form-templates/:id');
+    console.log(' - POST http://localhost:3000/candidatos');
+    console.log(' - GET http://localhost:3000/candidatos');
+    console.log('                                               ');
+    console.log(`- POST   http://localhost:3000/eventos`);
+    console.log(`- GET    http://localhost:3000/eventos/usuario/:funcionarioId`);
+    console.log(`- PUT    http://localhost:3000/eventos/:eventoId/participantes/:funcionarioId`);
 })
