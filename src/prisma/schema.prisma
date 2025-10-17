@@ -267,7 +267,7 @@ model Candidato {
   id                  Int     @id @default(autoincrement())
   nome                String
   dataNascimento      DateTime @map("data_nascimento") @db.Date
-  genero              String   @unique
+  genero              String   
   telefone            String   
   cpf                 String
   estado              String   @db.Char(2)
@@ -280,7 +280,8 @@ model Candidato {
   email               String 
   status              String   @default("pendente")
   createdAt           DateTime @default(now()) @map("created_at")
-  updatedAt           DateTime @updatedAt @map("updated_at") 
+  updatedAt           DateTime @updatedAt @map("updated_at")
+  nomeArquivoCurriculo String? @map("curriculo_filename") 
 
   @@map("Candidatos")  
 }

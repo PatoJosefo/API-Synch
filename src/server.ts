@@ -11,9 +11,12 @@ import { CreateFormTemplate } from './form_template.js';
 import { UpdateFormTemplate } from './form_template.js';
 import 'dotenv/config';
 import { CreateCandidato } from './temp_form.js';
+import multer from 'multer';
+import { multerConfig } from './multer_config.js';
 
 const app = express();
 const PORT = 3000;
+const upload = multer({ dest: '../uploads'});
 
 app.use(cors());
 app.use(express.json());
@@ -375,43 +378,44 @@ app.get ('/form-templates/:id', async (req: Request, res: Response) => {
     }
 });
 
-app.post('/candidatos', async (req: Request, res: Response) => {
-    try {
-        const dadosFormulario = new CreateCandidato(req.body);
+app.post('/candidatos', upload.single('curriculo'), async (req: Request, res: Response) => {
+  try {
+    const nomeArquivo = req.file?.filename;
+    const dadosFormulario = new CreateCandidato(req.body);
 
-        const novo_agregado = await prisma.candidato.create({
-            data: {
-                nome: dadosFormulario.nome,
-                email: dadosFormulario.email,
-                telefone: dadosFormulario.telefone,
-                cidade: dadosFormulario.cidade,
-                estado: dadosFormulario.estado,
-                dataNascimento: dadosFormulario.dataNascimento,
-                genero: dadosFormulario.genero,
-                cpf: dadosFormulario.cpf,
-                bairro: dadosFormulario.bairro,
-                rua: dadosFormulario.rua,
-                numero: dadosFormulario.numero,
-                complemento: dadosFormulario.complemento ?? null,
-                cep: dadosFormulario.cep,
-            },
-        });
+    const novoAgregado = await prisma.candidato.create({
+      data: {
+        nome: dadosFormulario.nome,
+        email: dadosFormulario.email,
+        telefone: dadosFormulario.telefone,
+        cidade: dadosFormulario.cidade,
+        estado: dadosFormulario.estado,
+        dataNascimento: dadosFormulario.dataNascimento,
+        genero: dadosFormulario.genero,
+        cpf: dadosFormulario.cpf,
+        bairro: dadosFormulario.bairro,
+        rua: dadosFormulario.rua,
+        numero: dadosFormulario.numero,
+        complemento: dadosFormulario.complemento ?? null,
+        cep: dadosFormulario.cep,
+        nomeArquivoCurriculo: nomeArquivo ?? null,
+      },
+    });
 
-        res.status(201).json(novo_agregado);
-    } catch (error: any) {
-        if (
-            error.message.includes('obrigatório') ||
-            error.message.includes('inválido') ||
-            error.message.includes('dígitos') ||
-            error.message.includes('caracteres') ||
-            error.message.includes('Idade')
-        ) {
-            return res.status(400).json({ message: error.message });
-        }
-
-        console.error('Erro ao criar formulário:', error);
-        res.status(500).json({ message: 'Erro interno no servidor.' });
+    res.status(201).json(novoAgregado);
+  } catch (error: any) {
+    if (
+      error.message.includes('obrigatório') ||
+      error.message.includes('inválido') ||
+      error.message.includes('dígitos') ||
+      error.message.includes('caracteres') ||
+      error.message.includes('Idade')
+    ) {
+      return res.status(400).json({ message: error.message });
     }
+    console.error('Erro ao criar formulário:', error);
+    res.status(500).json({ message: 'Erro interno no servidor.' });
+  }
 });
 
 app.get('/candidatos', async (_req: Request, res: Response) => {
