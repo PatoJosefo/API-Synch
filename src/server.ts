@@ -13,13 +13,34 @@ import 'dotenv/config';
 import { CreateCandidato } from './temp_form.js';
 import multer from 'multer';
 import { multerConfig } from './multer_config.js';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const PORT = 3000;
-const upload = multer({ dest: '../uploads'});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Caminho da pasta 'uploads' dentro do projeto
+const uploadDir = path.resolve(process.cwd(), 'uploads'); // process.cwd() = diretório onde o Node foi iniciado
+
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: uploadDir,
+    filename: (req, file, cb) => {
+      cb(null, Date.now() + '-' + file.originalname);
+    },
+  }),
+});
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 //                      FUNCIONÁRIOS
 
@@ -378,10 +399,39 @@ app.get ('/form-templates/:id', async (req: Request, res: Response) => {
     }
 });
 
-app.post('/candidatos', upload.single('curriculo'), async (req: Request, res: Response) => {
+app.post('/candidatos', upload.fields([
+  { name: 'curriculo', maxCount: 1 },
+  { name: 'fotos', maxCount: 5 }
+]), async (req: Request, res: Response) => {
   try {
-    const nomeArquivo = req.file?.filename;
+    const files = req.files as { [fieldname: string]: Express.Multer.File[] };
     const dadosFormulario = new CreateCandidato(req.body);
+
+    const arquivosParaSalvar = [];
+
+    const curriculoFiles = files?.['curriculo'];
+    if (curriculoFiles && curriculoFiles.length > 0) {
+      const curriculo = curriculoFiles[0]; 
+      if (curriculo) { 
+        arquivosParaSalvar.push({
+          nomeArquivo: curriculo.filename, 
+          campoOriginal: 'curriculo'
+        });
+      }
+    }
+
+    // Processa as fotos
+    const fotosFiles = files?.['fotos'];
+    if (fotosFiles && fotosFiles.length > 0) {
+      fotosFiles.forEach(file => {
+        if (file) { 
+            arquivosParaSalvar.push({
+                nomeArquivo: file.filename,
+                campoOriginal: 'fotos'
+            });
+        }
+      });
+    }
 
     const novoAgregado = await prisma.candidato.create({
       data: {
@@ -398,8 +448,13 @@ app.post('/candidatos', upload.single('curriculo'), async (req: Request, res: Re
         numero: dadosFormulario.numero,
         complemento: dadosFormulario.complemento ?? null,
         cep: dadosFormulario.cep,
-        nomeArquivoCurriculo: nomeArquivo ?? null,
+        arquivos: {
+          create: arquivosParaSalvar
+        }
       },
+      include: {
+        arquivos: true
+      }
     });
 
     res.status(201).json(novoAgregado);
@@ -418,40 +473,33 @@ app.post('/candidatos', upload.single('curriculo'), async (req: Request, res: Re
   }
 });
 
-app.get('/candidatos', async (_req: Request, res: Response) => {
-    try {
-      const { status } = _req.query;
-      const whereClause = status ? { status: String(status) } : {};
+app.get('/candidatos', async (req: Request, res: Response) => {
+  try {
+    const { status } = req.query;
+    const whereClause = status ? { status: String(status) } : {};
 
-      const candidatos = await prisma.candidato.findMany({
-        where: whereClause,
-        select: {
-          id: true,
-          nome: true,
-          email: true,
-          telefone: true,
-          cidade: true,
-          estado: true,
-          dataNascimento: true,
-          genero: true,
-          cpf: true,
-          bairro: true,
-          rua: true,
-          numero: true,
-          complemento: true,
-          cep: true,
-          status: true,
-          createdAt: true,
-        },
-        orderBy: { createdAt: 'desc' },
-      });
+    const candidatos = await prisma.candidato.findMany({
+      where: whereClause,
+      include: {
+        arquivos: {
+          select: {
+            id: true,
+            nomeArquivo: true,
+            campoOriginal: true,
+          }
+        }
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
 
-      res.status(200).json(candidatos);
-    } catch (error) {
-      console.error('Erro ao listar candidatos:', error);
-      res.status(500).json({ message: 'Erro interno no servidor.' });
-    }
-  });
+    res.status(200).json(candidatos);
+  } catch (error) {
+    console.error('Erro ao listar candidatos:', error);
+    res.status(500).json({ message: 'Erro interno no servidor.' });
+  }
+});
 
 app.post('/eventos', async (req: Request, res: Response) => {
   console.log('--- NOVA REQUISIÇÃO POST /eventos ---');

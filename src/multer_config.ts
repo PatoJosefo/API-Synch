@@ -35,7 +35,7 @@ const fileFilter = (req: Express.Request, file: Express.Multer.File, cb: multer.
     'image/pjpeg',
     'image/png',
     'image/gif',
-    'application/pdf',
+    'application/x-pdf',
     'application/msword',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   ];

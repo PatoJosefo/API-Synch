@@ -281,7 +281,19 @@ model Candidato {
   status              String   @default("pendente")
   createdAt           DateTime @default(now()) @map("created_at")
   updatedAt           DateTime @updatedAt @map("updated_at")
-  nomeArquivoCurriculo String? @map("curriculo_filename") 
+ 
+  arquivos        ArquivoCandidato[]
 
   @@map("Candidatos")  
+}
+
+
+model ArquivoCandidato {
+  id            Int      @id @default(autoincrement())
+  nomeArquivo   String   @map("nome_arquivo")
+  campoOriginal String   @map("campo_original")
+  candidatoId   Int      @map("candidato_id")
+  candidato     Candidato @relation(fields: [candidatoId], references: [id])
+  
+  @@map("arquivos_candidato")
 }
