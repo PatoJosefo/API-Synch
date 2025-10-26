@@ -26,6 +26,7 @@ model Funcionario {
   local       String   @map("func_local") @db.VarChar(100)
   nivelAcesso String   @map("func_nivel_acesso") @db.VarChar(50)
   senhaHash   String   @map("senha_hash") @db.VarChar(255)
+  dataNascimento      DateTime  @map("data_nascimento") @db.Date
 
   // Auto-relacionamento para Gerente
   gerenteId   Int?     @map("gerente_id")

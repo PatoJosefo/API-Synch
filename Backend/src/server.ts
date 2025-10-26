@@ -62,6 +62,7 @@ app.post('/funcionarios', async (req: Request, res: Response) => {
         nivelAcesso: dados_funcionario.nivelAcesso,
         senhaHash: dados_funcionario.senhaHash,
         gerenteId: dados_funcionario.gerente_id,
+        dataNascimento: dados_funcionario.dataNascimento,
       },
     });
 

@@ -9,6 +9,7 @@ export class _funcionario {
     public local: string
     public nivelAcesso: string 
     public gerente_id: number | null;
+    public dataNascimento: Date;
 
     private _cpf!: string;
     private _email!: string;
@@ -28,6 +29,9 @@ export class _funcionario {
         this.nivelAcesso=dados.nivelAcesso;
         this.senha=dados.senha;
         this.gerente_id=dados.gerente_id || null;
+
+        if (!dados.dataNascimento) throw new Error('Data de nascimento é obrigatória!');
+        this.dataNascimento = new Date(dados.dataNascimento);
     }
 
 
