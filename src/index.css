@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Custom Focus Styles */
+*:focus:not(ol) {
+  outline: none;
+  border-color: var(--color-cyan-400);
+  box-shadow: 0 0 0 2px var(--color-cyan-400);
+}
+
+/* Remove default select appearance */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+/* Hide scrollbar utility */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
