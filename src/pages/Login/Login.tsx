@@ -1,48 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, type FormEvent} from 'react';
+import { useAuth } from '../../Context/AuthContext';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
 import './login.css'
 import img from './fundo.jpg' 
 
 
+const Login:React.FC = () => {
 
-function Login() {
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
-  const [message, setMessage] = useState('');
-
-  let navigate = useNavigate()
-
-  const imagemFundo = img
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const newPost = { cpf, senha };
+  const [err, setErr] = useState('');
+  const { login } = useAuth()
+  const navigate = useNavigate()
 
 
-    try {
-      const response = await axios.post(
-        'http://localhost:3000/login', // Example API endpoint
-        newPost,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      setMessage(`Post created successfully! ID: ${response.data.id}`);
-      setCpf('');
-      setSenha('');
-      navigate('/Teste')
-    } catch (error) {
-      setMessage(`Error creating post: ${error.message}`);
+
+  const handleSubmit = async (e: FormEvent) =>{
+    e.preventDefault()
+    setErr('')
+
+    try{
+      const response = await axios.post('http://localhost:3000/login', {cpf, senha}) 
+
+      const jwtToken = response.data.token
+
+      if(jwtToken){
+        login(jwtToken)
+        navigate("/dashboard")
+      }else{
+        setErr('Resposta inválida do servidor: Token não encontrado')
+      }
+    }catch(error){
+      if(axios.isAxiosError(error) && error.response){
+        setErr(error.response.data.message || 'Falha no login, verifique suas credenciais')
+      }else{
+        setErr('Ocorreu um erro na requisição')
+      }
     }
-    
+  }
 
-  };
+ 
 
-
+  
+  const imagemFundo = img
   return (
     <div className='login'>
 
@@ -58,7 +59,7 @@ function Login() {
           <p>Logística Integrada</p>
         </div>
 
-        <form onSubmit={handleSubmit} className='form'>
+        <form className='form' onSubmit={handleSubmit}>
 
           <div className='div-input'>
             <label className='input-label'>CPF:</label>
@@ -78,7 +79,6 @@ function Login() {
 
 
         </form>
-        {message && <p>{message}</p>}
       </div>
     </div>
   );
