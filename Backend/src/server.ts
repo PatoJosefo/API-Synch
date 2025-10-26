@@ -110,6 +110,26 @@ app.get('/funcionarios', async (_req: Request, res: Response) => {
   }
 });
 
+app.get('/funcionarios/lista-simples', async (_req: Request, res: Response) => {
+  try {
+    const funcionarios = await prisma.funcionario.findMany({
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+        cargo: true,
+      },
+      orderBy: { nome: 'asc' }
+    });
+    
+    res.status(200).json(funcionarios);
+  } catch (error) {
+    console.error('Erro ao listar funcionários:', error);
+    res.status(500).json({ message: 'Erro interno no servidor.' });
+  }
+});
+
+
 
 app.put('/funcionarios/:id', async (req: Request, res: Response) => {
   try {
@@ -579,20 +599,23 @@ app.get('/eventos/usuario/:funcionarioId', async (req: Request, res: Response) =
     const funcionarioId = Number(idParam);
     if (isNaN(funcionarioId)) return res.status(400).json({ message: 'ID inválido.' });
     
-    
     const convites = await prisma.funcionariosConvidados.findMany({
       where: { funcionarioId },
       include: {
         evento: {
           include: {
-            organizador: { select: { id: true, nome: true, email: true } }
+            organizador: { select: { id: true, nome: true, email: true } },
+            funcionariosConvidados: {  // ADICIONE ISTO
+              include: {
+                funcionario: { select: { id: true, nome: true, email: true } }
+              }
+            }
           }
         },
         presenca: true 
       },
       orderBy: { evento: { dataIni: 'asc' } }
     });
-    
     
     const resposta = convites.map(c => {
       const e = c.evento;
@@ -605,6 +628,7 @@ app.get('/eventos/usuario/:funcionarioId', async (req: Request, res: Response) =
         link: e.link,
         statusEvento: e.status,
         organizador: e.organizador,
+        participantes: e.funcionariosConvidados.map(fc => fc.funcionario), // ADICIONE ISTO
         respostaPresenca: c.presenca ? {
           presente: c.presenca.presente,
           razaoRecusa: c.presenca.razaoRecusa,
@@ -619,6 +643,55 @@ app.get('/eventos/usuario/:funcionarioId', async (req: Request, res: Response) =
     res.status(500).json({ message: 'Erro interno ao listar eventos.' });
   }
 });
+
+app.put('/eventos/:id', async (req: Request, res: Response) => {
+  try {
+    const eventoId = Number(req.params.id);
+    if (isNaN(eventoId)) return res.status(400).json({ message: 'ID inválido.' });
+    
+    const { titulo, desc, dataIni, duracaoH, link, status, convidados } = req.body;
+    
+    // Atualiza o evento
+    const eventoAtualizado = await prisma.evento.update({
+      where: { id: eventoId },
+      data: {
+        titulo,
+        desc,
+        dataIni: dataIni ? new Date(dataIni) : undefined,
+        duracaoH,
+        link,
+        status,
+      }
+    });
+    
+    // Atualiza convidados se fornecido
+    if (Array.isArray(convidados)) {
+      // Remove convites antigos
+      await prisma.funcionariosConvidados.deleteMany({
+        where: { eventoId }
+      });
+      
+      // Adiciona novos convites
+      if (convidados.length > 0) {
+        await prisma.funcionariosConvidados.createMany({
+          data: convidados.map((funcId: number) => ({
+            eventoId,
+            funcionarioId: funcId
+          })),
+          skipDuplicates: true
+        });
+      }
+    }
+    
+    return res.status(200).json(eventoAtualizado);
+  } catch (error: any) {
+    console.error('Erro ao atualizar evento:', error);
+    if (error.code === 'P2025') return res.status(404).json({ message: 'Evento não encontrado.' });
+    return res.status(500).json({ message: 'Erro interno ao atualizar evento.' });
+  }
+});
+
+
 
 app.put('/eventos/:id/status', async (req: Request, res: Response) => {
   try {
@@ -689,12 +762,37 @@ app.put('/eventos/:eventoId/participantes/:funcionarioId', async (req: Request, 
   }
 });
 
+app.delete('/eventos/:id', async (req: Request, res: Response) => {
+  try {
+    const eventoId = Number(req.params.id);
+    if (isNaN(eventoId)) return res.status(400).json({ message: 'ID inválido.' });
+    
+    // IMPORTANTE: Delete relacionamentos primeiro
+    await prisma.funcionariosConvidados.deleteMany({
+      where: { eventoId }
+    });
+    
+    await prisma.evento.delete({
+      where: { id: eventoId }
+    });
+    
+    return res.status(204).send();
+  } catch (error: any) {
+    console.error('Erro ao deletar evento:', error);
+    if (error.code === 'P2025') return res.status(404).json({ message: 'Evento não encontrado.' });
+    return res.status(500).json({ message: 'Erro interno ao deletar evento.' });
+  }
+});
+
+
+
 
 app.listen(PORT, () => {
     console.log(`servidor pronto e operante em: http://localhost:${PORT}`);
     console.log('Usar o Imsomnia ou Postman pra testar os endpoints:');
     console.log(' - POST http://localhost:3000/funcionarios');
     console.log(' - GET http://localhost:3000/funcionarios');
+    console.log(' - GET http://localhost:3000/funcionarios/lista-simples');
     console.log(' - PUT http://localhost:3000/funcionarios/:id');
     console.log(' - DELETE http://localhost:3000/funcionarios/:id');
     console.log(' - POST http://localhost:3000/login');
@@ -707,7 +805,9 @@ app.listen(PORT, () => {
     console.log(' - POST http://localhost:3000/candidatos');
     console.log(' - GET http://localhost:3000/candidatos');
     console.log('                                               ');
-    console.log(`- POST   http://localhost:3000/eventos`);
-    console.log(`- GET    http://localhost:3000/eventos/usuario/:funcionarioId`);
-    console.log(`- PUT    http://localhost:3000/eventos/:eventoId/participantes/:funcionarioId`);
+    console.log(` - POST   http://localhost:3000/eventos`);
+    console.log(` - GET    http://localhost:3000/eventos/usuario/:funcionarioId`);
+    console.log(` - PUT    http://localhost:3000/eventos/:id`);
+    console.log(` - PUT    http://localhost:3000/eventos/:eventoId/participantes/:funcionarioId`);
+    console.log(' - DELETE http://localhost:3000/eventos/:id');
 })
