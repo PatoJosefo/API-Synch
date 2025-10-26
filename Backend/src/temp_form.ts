@@ -12,6 +12,7 @@ export class CreateCandidato {
     public numero: string;
     public complemento? : string;
     public cep: string;
+    public nomeArquivo!: string;
 
     constructor(dados:any) {
         if (!dados.nome) throw new Error("Nome é obrigatório");
@@ -77,6 +78,8 @@ export class CreateCandidato {
 
         this.numero = dados.numero;
         this.complemento = dados.complemento;
+
+        this.nomeArquivo = dados.nomeArquivo
 
 }
 };
