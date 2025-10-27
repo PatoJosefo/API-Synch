@@ -1,5 +1,5 @@
 import React, { useState, type FormEvent} from 'react';
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth } from '../../components/Context/AuthContext';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './login.css'
@@ -27,7 +27,7 @@ const Login:React.FC = () => {
 
       if(jwtToken){
         login(jwtToken)
-        navigate("/dashboard")
+        navigate("/FormCadastro")
       }else{
         setErr('Resposta inválida do servidor: Token não encontrado')
       }
