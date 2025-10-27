@@ -131,7 +131,7 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 | Sprint          |    Período    | Documentação                                     | Status |
 | --------------- | :-----------: | ------------------------------------------------ | ----- |
 |  **SPRINT 1** | 08/09 - 28/09 | [Sprint1](docs/sprints/sprint1.md) | Concluído ✅ |
-|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) | Em andamento 🕗 |
+|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) | Concluído ✅ |
 |  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) | Não iniciada ❌ |
 
 ---
