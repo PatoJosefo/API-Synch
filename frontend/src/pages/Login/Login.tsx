@@ -49,7 +49,7 @@ const Login:React.FC = () => {
 
       <div className='gradient-container'>
         <div className='imagem-fundo'>
-          <img src={img} alt="" />
+          <img src={img} alt="fundo" />
         </div>
       </div>
       
@@ -62,14 +62,14 @@ const Login:React.FC = () => {
         <form className='form' onSubmit={handleSubmit}>
 
           <div className='div-input'>
-            <label className='input-label'>CPF:</label>
+            <p className='input-label'>CPF:</p>
             <input type="number" value={cpf} onChange={(e) => setCpf(e.target.value)} className='input'/>
 
           </div>
 
 
           <div className='div-input'>
-            <label className='input-label'>Senha:</label>
+            <p className='input-label'>Senha:</p>
             <input type='text'value={senha} onChange={(e) => setSenha(e.target.value)} className='input'></input>
           </div>
 
