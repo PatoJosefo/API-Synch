@@ -42,27 +42,17 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                                                                    | Estimativa | Sprint | Status |     |
 | :--: | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: | :----: | --- |
-|  1   |    Alta    | Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.                                                                                           |     8      |   1    |   ✅    |     |
-|  2   |    Alta    | Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.                                                          |     8      |   1    |   ✅    |     |
-|  3   |    Alta    | Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.                                                                                                                          |     5      |   1    |   ✅    |     |
-|  4   |    Alta    | Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.                                                            |     5      |   2    |   🕗   |     |
-|  5   |   Média    | Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença |     4      |   2    |   🕗   |     |
-|  6   |   Baixa    | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.                                                          |     2      |   2    |   🕗   |     |
-|  7   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ❌    |     |
-|  8   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ❌    |     |
-|  9   |     ?      | Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões.                                                                                                                   |     ?      |   3    |   ❌    |     |
-|  10  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ❌    |     |
-|  11  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ❌    |     |
-
----
-
-## 📆 Cronograma de Sprints <a id="sprint"></a>
-
-| Sprint          |    Período    | Documentação                                     |
-| --------------- | :-----------: | ------------------------------------------------ |
-| **SPRINT 1** | 08/09 - 28/09 | [Sprint 1 Docs](/docs/sprints/sprint1.md) |
-| **SPRINT 2** | 06/10 - 26/10 | [Sprint 2 Docs](/docs/sprints/sprint2.md) |
-| **SPRINT 3** | 03/11 - 23/11 | [Sprint 3 Docs](/docs/sprints/sprint3.md) |
+|  1   |    Alta    | Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.                                                                                           |     8      |   1    |   ✅    |     
+|  2   |    Alta    | Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.                                                          |     8      |   1    |   ✅    |     
+|  3   |    Alta    | Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.                                                                                                                          |     5      |   1    |   ✅    |     
+|  4   |    Alta    | Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.                                                            |     5      |   2    |   ✅   |     
+|  5   |   Média    | Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença |     4      |   2    |   ✅   |     
+|  6   |   Baixa    | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.                                                          |     2      |   2    |   ✅   |     
+|  7   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ❌    |     
+|  8   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ❌    |     
+|  9   |     ?      | Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões.                                                                                                                   |     ?      |   3    |   ❌    |     
+|  10  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ❌    |     
+|  11  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ❌    |    
 
 ---
 
@@ -77,10 +67,10 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                                                                    | Estimativa | Sprint | Status  |     |
 | :--: | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: | :----:  | --- |
-|  1   |    Alta    | Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.                                                                                           |     8      |   1    |   ✅    |     |
-|  2   |    Alta    | Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.                                                          |     8      |   1    |   ✅    |     |
-|  3   |    Alta    | Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.                                                                                                       |     8      |   1    |   ✅    |     |
-|  4   |    Alta    | Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.                                                                                                                          |     5      |   1    |   ✅    |     |
+|  1   |    Alta    | Eu, como gestor, gostaria de que o site tivesse o cadastro dos colaboradores, com registro de nome e informações básicas, para controlar o acesso dos funcionários.                                                                                           |     8      |   1    |   ✅    |     
+|  2   |    Alta    | Eu, como colaborador, gostaria de ter a possibilidade de criar eventos e marcar se eventos e/ou treinamentos foram efetivamente concluídos na agenda, para notificar os demais sobre o encerramento.                                                          |     8      |   1    |   ✅    |     
+|  3   |    Alta    | Eu, como gestor, gostaria de ter a possibilidade de editar e criar meu próprio formulário para situações que demandam um nível de especificidade maior.                                                                                                       |     8      |   1    |   ✅    |     
+|  4   |    Alta    | Eu, como colaborador, desejo ter cesso à uma tela de login para me poissibilitar ter maior controle do acesso dos meus funcionários.                                                                                                                          |     5      |   1    |   ✅    |     
 
 </details>
 
@@ -91,9 +81,9 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                                                                    | Estimativa | Sprint | Status |     |
 | :--: | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: | :----: | --- |
-|  5   |    Alta    | Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.                                                            |     5      |   2    |   🕗   |     |
-|  6   |    Média   | Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença |     4      |   2    |   🕗   |     |
-|  7   |    Baixa   | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.                                                          |     2      |   2    |   🕗   |     |
+|  5   |    Alta    | Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.                                                            |     5      |   2    |   ✅   |     
+|  6   |    Média   | Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença |     4      |   2    |   ✅   |     
+|  7   |    Baixa   | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.                                                          |     2      |   2    |   ✅   |     
 
 </details>
 
@@ -104,11 +94,11 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                                                                    | Estimativa | Sprint | Status  |     |
 | :--: | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: | :----:  | --- |
-|  8   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ❌    |     |
-|  9   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ❌    |     |
-|  10  |     ?      | Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões.                                                                                                                   |     ?      |   3    |   ❌    |     |
-|  11  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ❌    |     |
-|  12  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ❌    |     |
+|  8   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ❌    |     
+|  9   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ❌    |     
+|  10  |     ?      | Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões.                                                                                                                   |     ?      |   3    |   ❌    |     
+|  11  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ❌    |     
+|  12  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ❌    |     
 
 </details>
 
@@ -140,9 +130,9 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 | Sprint          |    Período    | Documentação                                     | Status |
 | --------------- | :-----------: | ------------------------------------------------ | ----- |
-|  **SPRINT 1** | 08/09 - 28/09 | [Sprint1](docs/sprints/sprint1.md) |  Concluído ✅  |
-|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) | Em andamento 🕗  |
-|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) | Não iniciada ❌  |
+|  **SPRINT 1** | 08/09 - 28/09 | [Sprint1](docs/sprints/sprint1.md) | Concluído ✅ |
+|  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) | Em andamento 🕗 |
+|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) | Não iniciada ❌ |
 
 ---
 
@@ -231,10 +221,20 @@ Adotamos um fluxo baseado em **GitFlow**:
 | Tipo | Uso |
 |------|-----|
 | `main` | Código estável em produção |
-| `desenvolvimento` | Integração das sprints |
-| `feature/US-<id>-<nome>` | Nova User Story |
-| `task/US-<id>-<descrição>` | Subtask técnica (opcional) |
-| `db/sprint-<n>` | Alterações de banco de dados |
+| `Backend` | Integração das funcionalidades backend |
+| `feat/frontend_agenda_calendario_eventos` |  Criação da parte visual da agenda, calendário e eventos do site |
+| `feat/backend_upload` | Upload de dados do backend do projeto |
+| `feat/frontend-agenda` | Criação da parte visual da agenda do site |
+| `Documentação-Geral` | Código e documentação geral do repositório |
+| `chore/documentacao_geral` | Branch reserva do código e documentação geral do repositório |
+| `master` | Nova User Story |
+| `Frontend` | Código da parte visual do site |
+| `feat/implementação-inicial-sistema-formulário` | Alterações de banco de dados |
+| `formulario-newe` | Armazena ocasionais alterações no banco de dados |
+| `feat/login` | Criação da parte visual do login do site |
+| `feat/eventos` | Criação da parte visual dos eventos do site |
+| `feat/implementacao-do-login` | Implementação da página de login no site |
+| `feat/Sistema_de_cadastro_backend` | Funcionalidade do sistema de cadastro do site |
 
 ---
 
