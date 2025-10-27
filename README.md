@@ -227,7 +227,6 @@ Adotamos um fluxo baseado em **GitFlow**:
 | `feat/frontend-agenda` | Criação da parte visual da agenda do site |
 | `Documentação-Geral` | Código e documentação geral do repositório |
 | `chore/documentacao_geral` | Branch reserva do código e documentação geral do repositório |
-| `master` | Nova User Story |
 | `Frontend` | Código da parte visual do site |
 | `feat/implementação-inicial-sistema-formulário` | Alterações de banco de dados |
 | `formulario-newe` | Armazena ocasionais alterações no banco de dados |
