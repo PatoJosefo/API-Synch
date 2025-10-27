@@ -9,13 +9,6 @@
 
 Atualmente, a empresa de logística Newe enfrenta diversos empecilhos ocasionados pela fragmentação de ferramentas para automatização de seu sistema. Essa descentralização dos processos administrativos intensifica a propensão a ocasionais problemas, e dificulta a produtividade e proatividade da equipe.
 
-Levando em consideração as problemáticas apresentadas acima, o Synch desenvolveu e implementou as seguintes tecnologias para ajudar a empresa na primeira sprint:
-
-* Prototipação do site pelo Figma
-* Criação de um banco de dados unificado para o site
-* Criação de uma tela de cadastros e login 
-* Definição da estrutura base do site e implementação de uma página de formulários funcional
-* Integração do banco de dados com o site
 
 ---
 
@@ -30,17 +23,36 @@ Levando em consideração as problemáticas apresentadas acima, o Synch desenvol
 
 ---
 
+## 🏃‍ DoR - Definition of Ready
+
+| Critérios                            | Definição                                                                                     |
+| ------------------------------------ | --------------------------------------------------------------------------------------------- |
+| **Criação do design do Figma**    | Criar um design do figma como base para a criação do site       |
+| **Validação e teste dos códigos** | Validar e testar todos os códigos feitos ao longo da sprint |
+| **Distribuição de tasks**  | Distribuir e decidir qual membro estará resposável por cada task.        |
+| **Criação de um banco de dados**  | Criar o banco de dados a ser utilizado durante o projeto.         |
+
+---
+
+### 🏆 Definition of Done <a id="dod"></a>
+
+| Critério | Descrição |
+|-----------|------------|
+| **Revisão da documentação** | Documentação totalmente estruturada, organizada e de fácil compreensão. |
+| **Código Revisado** | O código passou por revisão de, no mínimo, dois membros da equipe e está em conformidade com os padrões estabelecidos. |
+| **Finalização de todos os cenários e validação do cliente** | Aprovação de todos os cenários e tasks pelo cliente, após serem finalizados. |
+| **Integração de todos os códigos** | Integrar todos os códigos criados pelos membros ao longo da sprint. |
+
+---
+
 ## 🎥 Mídia <a id="midia"></a>
 
 ## Protótipo do Figma
 
-
+<p>Durante a primeira sprint, a nossa equipe desenvolveu um protótipo do figma para facilitar o processo de criação do site em typescript. No protótipo é possivel observar todas as funcionalidades do site apresentadas de maneira mais simplificada.</p>
 
 https://github.com/user-attachments/assets/da681d8d-043c-4a76-b993-59b935bded67
 
-
-
-<p>Durante a primeira sprint, a nossa equipe desenvolveu um protótipo do figma para facilitar o processo de criação do site em typescript. No protótipo é possivel observar todas as funcionalidades do site apresentadas de maneira mais simplificada.</p>
 
 ## Site Sprint 1
 <p>Durante a primeira sprint, a nossa equipe desenvolveu um site contendo 2 páginas, sendo uma de login e a outra de formulário. Na tela de login é possível entrar com sua conta de colaborador já cadastrada previamente. Na tela de formulário é possível preencher diferentes campos para cadastrar suas informações que serão futuramente analisadas pelo operacional, visando a prestação de serviços.</p>

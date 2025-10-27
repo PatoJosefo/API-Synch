@@ -9,11 +9,6 @@
 
 Atualmente, a empresa de logística Newe enfrenta diversos empecilhos ocasionados pela fragmentação de ferramentas para automatização de seu sistema. Essa descentralização dos processos administrativos intensifica a propensão a ocasionais problemas, e dificulta a produtividade e proatividade da equipe.
 
-Levando em consideração as problemáticas apresentadas acima, o Synch desenvolveu e implementou as seguintes tecnologias para ajudar a empresa na terceira sprint:
-
-* 
-*
-* 
 
 ---
 

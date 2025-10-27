@@ -9,24 +9,40 @@
 
 Atualmente, a empresa de logística Newe enfrenta diversos empecilhos ocasionados pela fragmentação de ferramentas para automatização de seu sistema. Essa descentralização dos processos administrativos intensifica a propensão a ocasionais problemas, e dificulta a produtividade e proatividade da equipe.
 
-Levando em consideração as problemáticas apresentadas acima, o Synch desenvolveu e implementou as seguintes tecnologias para ajudar a empresa na segunda sprint:
-
-* Melhorar o frontend
-* Criação da funcionalidade de notificações dentro do site
-* Disponibilização de templates de formulários para uso e edição
-
 ---
 
 ## 📋 Backlog do Produto <a id="backlog"></a>
 
-| Rank | Prioridade | User Story                                                                                                                                                                                                     | Estimativa | Sprint | Status |
-| :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: |
-|  ?  | ?      |   Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.  | ?           |  2 |       🕗          | 
-|  ? |  ?  |   Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença  |     ?       |     2  |    🕗             |       2 |            |   2  |                 | 
-|  ?|   ?   |  Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.   |   ?         |    2   |     🕗          |       |
-|  ?  | ?    |  Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.   |     ?      |    2  |     🕗            |
+| Rank | Prioridade | User Story                                                                                                                                                                                                                                                    | Estimativa   | Sprint | Status  |
+| :--: | :--------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :----------: | :----: | :------------------: |
+|  5   |    Alta    | Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.                                                            |     5        |   2    |   ✅    |            |
+|  6   |    Média   | Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença |     4        |   2    |   ✅    |            |
+|  7   |    Baixa   | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.                                                          |     2        |   2    |   ✅    |            |
+---
+
+## 🏃‍ DoR - Definition of Ready
+
+| Critérios                            | Definição                                                                                     |
+| ------------------------------------ | --------------------------------------------------------------------------------------------- |
+| **Revisão e definição de tasks**         | Revisar se as tasks englobam corretamente a definição do que a user story precisa.             |
+| **Distribuição e compreensão das tasks** | Reunião para a os membros da equipe pegarem a task de sua preferência e o seu esclarecimento. |
+| **Revisão do Backend e Banco de dados**  | Revisar se o Banco de dados e o Backend estão alinhados com os requisitos.                    |
+
 
 ---
+
+### 🏆 Definition of Done <a id="dod"></a>
+
+| Critério | Descrição |
+|-----------|------------|
+| **Funcionalidade Entregue** | A funcionalidade do backlog foi totalmente desenvolvida conforme o escopo acordado. |
+| **Código Revisado** | O código passou por revisão de, no mínimo, um membro da equipe e está em conformidade com os padrões estabelecidos. |
+| **Dados Armazenados e Disponíveis** | As informações geradas pela funcionalidade (ex.: cadastros, históricos) estão sendo corretamente salvas e recuperadas. |
+| **Validação Final** | O gestor ou parceiro revisou e aprovou a entrega, confirmando que atende aos requisitos definidos. |
+
+
+---
+
 
 ## 🎓 Equipe <a id="equipe"></a>
 
