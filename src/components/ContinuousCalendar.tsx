@@ -5,8 +5,9 @@ import { EventModal } from './EventModal';
 import { eventosAPI, type EventoResponse } from '../services/api';
 import { EventDetailsPanel } from './EventDetailsPanel';
 
-const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
 
 // Gradientes para as pílulas de eventos
 const eventGradients = [
@@ -329,14 +330,14 @@ const handleModalClose = async () => {
           <div className="flex flex-wrap gap-2 sm:gap-3">
             <Select name="month" value={`${selectedMonth}`} options={monthOptions} onChange={handleMonthChange} />
             <button onClick={handleTodayClick} type="button" className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 lg:px-5 lg:py-2.5">
-              Today
+              Hoje
             </button>
             <button 
               onClick={handleAddEventClick}
               type="button" 
               className="whitespace-nowrap rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-3 py-1.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-cyan-300 sm:rounded-xl lg:px-5 lg:py-2.5"
             >
-              + Add Event
+                + Adicionar Evento
             </button>
           </div>
           <div className="flex w-fit items-center justify-between">
