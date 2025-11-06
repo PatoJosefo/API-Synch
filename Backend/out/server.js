@@ -556,7 +556,7 @@ app.put('/eventos/:id', async (req, res) => {
             data: {
                 titulo,
                 desc,
-                dataIni: dataIni ? new Date(dataIni) : undefined,
+                dataIni: dataIni ? new Date(dataIni) : null,
                 duracaoH,
                 link,
                 status,
