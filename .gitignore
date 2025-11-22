@@ -1,0 +1,8 @@
+/API-Synch-feat-cadastro
+/API-Synch-feat-formulario
+/API-Synch-feat-frontend_agenda_calendario_eventos
+API-Synch/Backend/uploads
+API-Synch/Backend/node_modules
+API-Synch/Backend/out
+API-Synch/frontend/node_modules
+API-Synch/Backend/.env
