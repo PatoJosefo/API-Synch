@@ -18,7 +18,7 @@ router.get('/vendas', async (req: Request, res: Response) => {
         });
 
         // Buscar nomes dos funcionários
-        const relatorio = await Promise.all(vendasPorFuncionario.map(async (item) => {
+        const relatorio = await Promise.all(vendasPorFuncionario.map(async (item: any) => {
             const func = await prisma.funcionario.findUnique({
                 where: { id: item.funcionarioId },
                 select: { nome: true }

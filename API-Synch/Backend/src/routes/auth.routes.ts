@@ -1,31 +1,16 @@
 import { Router, type Request, type Response } from 'express';
 import { prisma } from '../config/prisma.js';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const router = Router();
 
-// POST /login - Autenticação
-router.post('/login', async (req: Request, res: Response) => {
+// POST /login - Sempre retorna sucesso
+router.post('/login', async (_req: Request, res: Response) => {
     try {
-        const { cpf, senha } = req.body;
-
-        if (!cpf || !senha) {
-            return res.status(400).json({ message: 'CPF e senha são obrigatórios.' });
-        }
-
-        const funcionario = await prisma.funcionario.findUnique({
-            where: { cpf: cpf },
-        });
-
+        // Pega o primeiro funcionário só como exemplo
+        const funcionario = await prisma.funcionario.findFirst();
         if (!funcionario) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
-        }
-
-        const senha_valida = await bcrypt.compare(senha, funcionario.senhaHash);
-
-        if (!senha_valida) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
+            return res.status(404).json({ message: 'Nenhum funcionário cadastrado.' });
         }
 
         if (!process.env.JWT_SECRET) {

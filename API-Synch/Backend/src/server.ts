@@ -6,7 +6,6 @@ import { createServer } from 'http';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { prisma } from './config/prisma.js';
-
 // Route imports
 import authRoutes from './routes/auth.routes.js';
 import funcionariosRoutes from './routes/funcionarios.routes.js';
