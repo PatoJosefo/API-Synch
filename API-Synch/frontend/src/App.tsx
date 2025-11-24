@@ -6,6 +6,8 @@ import Notificacoes from "./pages/Notificacoes/Notificacoes";
 import CadastroFuncionario from "./pages/CadastroFuncionario/CadastroFuncionario";
 import FormularioAgregado from "./pages/FormularioAgregado/FormAgregado.tsx";
 
+import FunnelView from "./pages/Funnel/FunnelView";
+
 function App() {
   return (
     <div className="App">
@@ -14,11 +16,12 @@ function App() {
         <Route path="/" element={<Login />} />
 
         {/* Rotas Protegidas */}
-       <Route element={<PrivateRoute />}>
+        <Route element={<PrivateRoute />}>
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/notificacoes" element={<Notificacoes />} />
           <Route path="/cadastro-funcionario" element={<CadastroFuncionario />} />
           <Route path="/formulario-agregado" element={<FormularioAgregado />} />
+          <Route path="/funil" element={<FunnelView />} />
         </Route>
       </Routes>
     </div>

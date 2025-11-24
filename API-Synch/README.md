@@ -49,11 +49,10 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 |  4   |    Alta    | Eu, como gestor, gostaria de ter a posse de um formulário próprio onde os usuários possam se cadastrar com o intuito de prestar serviços de transporte para facilitar o recebimento de currículos.                                                            |     5      |   2    |   ✅   |     
 |  5   |   Média    | Eu, como colaborador, gostaria que o site tivesse a opção de recusar ou aceitar minha participação em algum evento, juntamente com uma aba para justificativa caso eu recuse, para dessa forma, avisar meus colegas de trabalho da minha ausência ou presença |     4      |   2    |   ✅   |     
 |  6   |   Baixa    | Eu, como administrador, quero que na tela de login dos meus funcionários apareça uma janela onde ele tenha que marcar se está trabalhando presencial ou online, ou se está em evento ou treinamento.                                                          |     2      |   2    |   ✅   |     
-|  7   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ❌    |     
-|  8   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ❌    |     
-|  9   |     ?      | Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões.                                                                                                                   |     ?      |   3    |   ❌    |     
-|  10  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ❌    |     
-|  11  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ❌    |    
+|  7   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ✅   |     
+|  8   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ✅   |          
+|  9   |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ✅   |     
+|  10  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ✅   |    
 
 ---
 ## ⏰ Status do Projeto sprint 2/3
@@ -94,11 +93,10 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                     | Estimativa | Sprint | Status |
 | :--: | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :----: | :------------------: |
-|  8   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ❌    |     
-|  9   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ❌    |     
-|  10  |     ?      | Eu, como vendedor, desejo que o site armazene os históricos de interação com os clientes, para facilitar o processo de ocasionais revisões.                                                                                                                   |     ?      |   3    |   ❌    |     
-|  11  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ❌    |     
-|  12  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ❌    |     
+|  8   |     ?      | Eu, como gestor, gostaria de disponibilizar automaticamente emails padronizados sobre os eventos marcados, que incluam, data, tempo de duração e espaço editável para adição de descrição sobre o evento, para alertar aos usuários sobre o evento.           |     ?      |   3    |   ✅   |     
+|  9   |     ?      | Eu, como vendedor, desejo visualizar um funil de vendas, para ter maior conhecimento acerca dos status de processo dos meus clientes.                                                                                                                         |     ?      |   3    |   ✅    |         
+|  10  |     ?      | Eu, como vendedor, gostaria de possuir um relatório onde eu possa visualizar gráficos das vendas, os clientes cadastrados e filtros de vendas, para facilitar ocasionais revisões.                                                                            |     ?      |   3    |   ✅    |     
+|  11  |     ?      | Eu, como gerente do RH, gostaria que o site emitisse notificações automáticas para os usuários e colaboradores sobre os eventos marcados, para facilitar o processo de notificação dos usuários cadastrados                                                   |     ?      |   3    |   ✅    |     
 
 </details>
 
@@ -133,7 +131,7 @@ Levando em consideração as problemáticas apresentadas acima, o Synch propõe 
 | --------------- | :-----------: | ------------------------------------------------ | ----- |
 |  **SPRINT 1** | 08/09 - 28/09 | [Sprint1](docs/sprints/sprint1.md) | Concluído ✅ |
 |  **SPRINT 2** | 06/10 - 26/10 | [Sprint2](docs/sprints/sprint2.md) | Concluído ✅ |
-|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) | Não iniciada ❌ |
+|  **SPRINT 3** | 03/11 - 23/11 | [Sprint3](docs/sprints/sprint3.md) | Concluído ✅ |
 
 ---
 
@@ -191,6 +189,11 @@ digite o seguinte comando e pressione a tecla Enter de seu teclado:
 ```bash
 npm install 
 ```
+Crie um arquivo .env na raiz do projeto e adicione as variáveis de ambiente necessárias.
+```bash
+DATABASE_URL="mysql://root:senha@localhost:3306/Synch"
+JWT_SECRET="senha"
+```
 após, digite o seguinte comando e pressione a tecla Enter de seu teclado:
 ```bash
 npx prisma migrate dev
@@ -203,6 +206,18 @@ npx prisma generate
 Isso gerará o cliente prisma, para que tudo funcione corretamente. Caso esteja no Visual Studio Code e ele acuse algum erro, reinicie o Visual Studio Code e abra novamente a pasta do projeto.
 Enfim, para executar o Backend, digite o seguinte comando e pressione a tecla Enter de seu teclado: 
 ```bash 
+npm run dev
+```
+
+### Frontend:
+
+Digite o seguinte comando e pressione a tecla Enter de seu teclado:
+```bash
+npm install
+```
+
+Após, digite o seguinte comando e pressione a tecla Enter de seu teclado:
+```bash
 npm run dev
 ```
 
@@ -221,20 +236,9 @@ Adotamos um fluxo baseado em **GitFlow**:
 
 | Tipo | Uso |
 |------|-----|
-| `main` | Código estável em produção |
-| `Backend` | Integração das funcionalidades backend |
-| `feat/frontend_agenda_calendario_eventos` |  Criação da parte visual da agenda, calendário e eventos do site |
-| `feat/backend_upload` | Upload de dados do backend do projeto |
-| `feat/frontend-agenda` | Criação da parte visual da agenda do site |
-| `Documentação-Geral` | Código e documentação geral do repositório |
-| `chore/documentacao_geral` | Branch reserva do código e documentação geral do repositório |
-| `Frontend` | Código da parte visual do site |
-| `feat/implementação-inicial-sistema-formulário` | Alterações de banco de dados |
-| `formulario-newe` | Armazena ocasionais alterações no banco de dados |
-| `feat/login` | Criação da parte visual do login do site |
-| `feat/eventos` | Criação da parte visual dos eventos do site |
-| `feat/implementacao-do-login` | Implementação da página de login no site |
-| `feat/Sistema_de_cadastro_backend` | Funcionalidade do sistema de cadastro do site |
+| `main` | Código estável |
+| `development` | Código em desenvolvimento |
+
 
 ---
 
