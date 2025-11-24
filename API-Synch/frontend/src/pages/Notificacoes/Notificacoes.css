@@ -1,0 +1,371 @@
+.notificacoes-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.notificacoes-title {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Loading & Empty States */
+.loading-state,
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #64748b;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Lista de Notificações */
+.notificacoes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Pílula de Notificação - AJUSTADA PARA CONTORNO ARREDONDADO */
+.notificacao-pill {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  background-clip: padding-box;
+}
+
+.notificacao-pill:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Bordas com gradiente ARREDONDADAS */
+.border-green-gradient {
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, #22c55e, #16a34a) border-box;
+}
+
+.border-red-gradient {
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, #ef4444, #b91c1c) border-box;
+}
+
+.border-gold-gradient {
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, #f59e0b, #d97706) border-box;
+}
+
+.border-gray-300 {
+  border: 3px solid #d1d5db;
+}
+
+/* Cabeçalho da Notificação */
+.notificacao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notificacao-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex: 1;
+}
+
+.status-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  display: none; /* ESCONDE OS ÍCONES */
+}
+
+.notificacao-titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.25rem 0;
+}
+
+.notificacao-preview {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.expand-icon {
+  width: 24px;
+  height: 24px;
+  color: #64748b;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.expand-icon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Detalhes Expandidos */
+.notificacao-detalhes {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detalhe-item {
+  margin-bottom: 1rem;
+}
+
+.detalhe-item strong {
+  display: block;
+  color: #475569;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.detalhe-item p {
+  color: #1e293b;
+  margin: 0.25rem 0;
+}
+
+.detalhe-item small {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.link-reuniao {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.link-reuniao:hover {
+  opacity: 0.9;
+}
+
+.participantes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.participantes-list li {
+  padding: 0.25rem 0;
+  color: #475569;
+}
+
+/* Status Badges */
+.status-atual {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.status-badge.confirmed {
+  background: linear-gradient(to right, #22c55e, #16a34a);
+  color: white;
+}
+
+.status-badge.declined {
+  background: linear-gradient(to right, #ef4444, #b91c1c);
+  color: white;
+}
+
+.razao-recusa {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: white;
+  border-left: 4px solid #ef4444;
+  border-radius: 4px;
+}
+
+/* Botões de Ação */
+.botoes-acao {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-confirmar,
+.btn-desmarcar {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-confirmar {
+  background: linear-gradient(to right, #22c55e, #16a34a);
+  color: white;
+}
+
+.btn-confirmar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+.btn-desmarcar {
+  background: linear-gradient(to right, #ef4444, #b91c1c);
+  color: white;
+}
+
+.btn-desmarcar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-confirmar:disabled,
+.btn-desmarcar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Campo de Justificativa */
+.justificativa-box {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fef2f2;
+  border-radius: 12px;
+  border: 2px solid #fecaca;
+  animation: slideDown 0.3s ease;
+}
+
+.justificativa-box label {
+  display: block;
+  font-weight: 600;
+  color: #991b1b;
+  margin-bottom: 0.75rem;
+}
+
+.textarea-justificativa {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #fca5a5;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.textarea-justificativa:focus {
+  outline: none;
+  border-color: #dc2626;
+}
+
+.justificativa-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-enviar-justificativa,
+.btn-cancelar-justificativa {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-enviar-justificativa {
+  flex: 1;
+  background: linear-gradient(to right, #ef4444, #b91c1c);
+  color: white;
+}
+
+.btn-enviar-justificativa:hover:not(:disabled) {
+  background: linear-gradient(to right, #dc2626, #991b1b);
+}
+
+.btn-enviar-justificativa:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-cancelar-justificativa {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.btn-cancelar-justificativa:hover {
+  background: #e2e8f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notificacoes-container {
+    padding: 1rem;
+  }
+
+  .notificacao-pill {
+    padding: 1rem;
+  }
+
+  .notificacao-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botoes-acao {
+    flex-direction: column;
+  }
+}

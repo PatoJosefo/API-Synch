@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Custom Focus Styles */
+*:focus:not(ol) {
+  outline: none;
+  border-color: var(--color-cyan-400);
+  box-shadow: 0 0 0 2px var(--color-cyan-400);
+}
+
+/* Remove default select appearance */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+/* Hide scrollbar utility */
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Afina bordas dos botões Hoje e Mês */
+.month-nav button,
+.today-button {
+  border-width: 1px !important;
+}
+
+/* Espaçamento antes de badges e botões */
+.detalhe-item .mt-2 {
+  margin-top: 0.75rem;
+}

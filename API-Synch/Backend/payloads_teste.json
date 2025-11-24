@@ -1,0 +1,69 @@
+{
+    "descricao": "Payloads de exemplo para testar as novas rotas da API",
+    "rotas": {
+        "FUNIL_DE_VENDAS": {
+            "criar_estagio": {
+                "metodo": "POST",
+                "url": "http://localhost:3000/funis",
+                "body": {
+                    "estagioNome": "Prospecção"
+                }
+            }
+        },
+        "CLIENTES": {
+            "criar_cliente": {
+                "metodo": "POST",
+                "url": "http://localhost:3000/clientes",
+                "body": {
+                    "nome": "Empresa Exemplo Ltda",
+                    "endereco": "Av. Paulista, 1000, São Paulo - SP",
+                    "funcionarioId": 1,
+                    "funilId": 1
+                }
+            },
+            "atualizar_cliente": {
+                "metodo": "PUT",
+                "url": "http://localhost:3000/clientes/1",
+                "body": {
+                    "nome": "Empresa Exemplo Atualizada",
+                    "endereco": "Av. Faria Lima, 200",
+                    "funilId": 2
+                }
+            }
+        },
+        "VENDAS": {
+            "registrar_venda": {
+                "metodo": "POST",
+                "url": "http://localhost:3000/vendas",
+                "body": {
+                    "dataVenda": "2023-11-21",
+                    "total": 5000.00,
+                    "funcionarioId": 1,
+                    "clienteId": 1
+                }
+            }
+        },
+        "CHAT": {
+            "mensagem_funcionario_para_cliente": {
+                "metodo": "POST",
+                "url": "http://localhost:3000/chat/mensagens",
+                "body": {
+                    "conteudo": "Olá, gostaria de confirmar nossa reunião.",
+                    "remetenteTipo": "funcionario",
+                    "funcionarioId": 1,
+                    "clienteId": 1
+                }
+            },
+            "mensagem_cliente_para_funcionario": {
+                "metodo": "POST",
+                "url": "http://localhost:3000/chat/mensagens",
+                "body": {
+                    "conteudo": "Confirmado! Nos vemos às 14h.",
+                    "remetenteTipo": "cliente",
+                    "funcionarioId": 1,
+                    "clienteId": 1
+                }
+            }
+        }
+    }
+}
