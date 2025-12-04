@@ -57,7 +57,7 @@ export const EventModal: React.FC<EventModalProps> = ({
   };
 
   const toggleFuncionario = (id: number) => {
-    setSelectedFuncionarios(prev => 
+    setSelectedFuncionarios(prev =>
       prev.includes(id) ? prev.filter(fId => fId !== id) : [...prev, id]
     );
   };
@@ -70,7 +70,7 @@ export const EventModal: React.FC<EventModalProps> = ({
     try {
       // Combina data e hora em um único ISO string
       const dataHoraCompleta = new Date(`${data}T${hora}:00`).toISOString();
-      
+
       await api.post('/eventos', {
         titulo,
         desc,
@@ -81,7 +81,7 @@ export const EventModal: React.FC<EventModalProps> = ({
         organizadorId,
         convidados: selectedFuncionarios
       });
-      
+
       // Limpa form e fecha
       setTitulo('');
       setDesc('');
@@ -100,21 +100,21 @@ export const EventModal: React.FC<EventModalProps> = ({
   if (!isOpen || !selectedDate) return null;
 
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString('pt-BR', { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('pt-BR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
   return (
     <>
-      <div 
-        className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-fadeIn"
+      <div
+        className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[110] flex items-center justify-center p-4 animate-fadeIn"
         onClick={onClose}
       >
-        <div 
+        <div
           className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform transition-all duration-300 animate-slideUp"
           onClick={(e) => e.stopPropagation()}
         >
@@ -208,13 +208,13 @@ export const EventModal: React.FC<EventModalProps> = ({
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Convidar Participantes ({selectedFuncionarios.length} selecionado(s))
               </label>
-              
+
               {loadingFuncionarios ? (
                 <div className="text-gray-500 text-sm py-4 text-center">Carregando funcionários...</div>
               ) : (
                 <div className="border border-gray-300 rounded-lg max-h-48 overflow-y-auto p-2 space-y-1">
                   {funcionarios.map(func => (
-                    <label 
+                    <label
                       key={func.id}
                       className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer transition"
                     >

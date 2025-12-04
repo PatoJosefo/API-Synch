@@ -8,15 +8,18 @@ router.post('/', async (req: Request, res: Response) => {
     try {
         const { nome, endereco, funcionarioId, funilId } = req.body;
 
-        if (!nome || !endereco || !funcionarioId || !funilId) {
-            return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+        if (!nome || !funilId) {
+            return res.status(400).json({ message: 'Nome e estágio do funil são obrigatórios.' });
         }
+
+        // Se não fornecer funcionarioId, usa o padrão (ID 1)
+        const funcId = funcionarioId ? Number(funcionarioId) : 1;
 
         const novoCliente = await prisma.cliente.create({
             data: {
                 nome,
-                endereco,
-                funcionarioId: Number(funcionarioId),
+                endereco: endereco || '',
+                funcionarioId: funcId,
                 funilId: Number(funilId),
             },
         });
@@ -75,12 +78,15 @@ router.get('/:id', async (req: Request, res: Response) => {
 router.put('/:id', async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
-        const { nome, endereco, funilId } = req.body;
+        const { nome, endereco, funilId, valorVenda, dataVenda, observacoes } = req.body;
 
         const data: any = {};
-        if (nome) data.nome = nome;
-        if (endereco) data.endereco = endereco;
-        if (funilId) data.funilId = Number(funilId);
+        if (nome !== undefined) data.nome = nome;
+        if (endereco !== undefined) data.endereco = endereco;
+        if (funilId !== undefined) data.funilId = Number(funilId);
+        if (valorVenda !== undefined) data.valorVenda = valorVenda ? Number(valorVenda) : null;
+        if (dataVenda !== undefined) data.dataVenda = dataVenda ? new Date(dataVenda) : null;
+        if (observacoes !== undefined) data.observacoes = observacoes;
 
         const clienteAtualizado = await prisma.cliente.update({
             where: { id: Number(id) },

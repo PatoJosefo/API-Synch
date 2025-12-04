@@ -36,7 +36,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isLoadingEvents, setIsLoadingEvents] = useState(false);
   const [clickedEventId, setClickedEventId] = useState<number | null>(null);
-  
+
   const monthOptions = monthNames.map((month, index) => ({ name: month, value: `${index}` }));
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
       const funcionarioId = 1;
       const eventosData = await eventosAPI.listarPorUsuario(funcionarioId);
       setEventos(eventosData);
-      
+
       if (isPanelOpen && selectedDayDate) {
         if (clickedEventId !== null) {
           const updatedEvent = eventosData.find(ev => ev.eventoId === clickedEventId);
@@ -63,7 +63,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
           const updatedDayEvents = eventosData.filter((evento) => {
             const eventoDate = new Date(evento.dataIni);
             const selectedDate = selectedDayDate;
-            
+
             return (
               eventoDate.getUTCDate() === selectedDate.getDate() &&
               eventoDate.getUTCMonth() === selectedDate.getMonth() &&
@@ -73,12 +73,12 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
           setSelectedDayEvents(updatedDayEvents);
         }
       }
-      
+
     } catch (error) {
       console.error('Erro ao carregar eventos:', error);
     } finally {
       setIsLoadingEvents(false);
-      
+
       if (preserveScroll) {
         setTimeout(() => {
           if (container) {
@@ -95,7 +95,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
       const eventoYear = eventoDate.getUTCFullYear();
       const eventoMonth = eventoDate.getUTCMonth();
       const eventoDay = eventoDate.getUTCDate();
-      
+
       return eventoDay === day && eventoMonth === month && eventoYear === year;
     });
   };
@@ -127,7 +127,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
         });
       } else {
         const offset = window.scrollY + elementRect.top - (window.innerHeight / offsetFactor) + (elementRect.height / 2);
-  
+
         window.scrollTo({
           top: offset,
           behavior: 'smooth',
@@ -165,7 +165,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
   const handleDayClick = (day: number, month: number, year: number) => {
     const dayEvents = getEventosForDay(day, month, year);
     const selectedDate = new Date(year, month, day);
-    
+
     setSelectedDayEvents(dayEvents);
     setSelectedDayDate(selectedDate);
     setClickedEventId(null);
@@ -223,7 +223,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
           daysInYear.push({ month: 0, day });
         }
       }
-    
+
       return daysInYear;
     };
 
@@ -254,7 +254,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
               <span className={`absolute left-1 top-1 flex size-5 items-center justify-center rounded-full text-xs sm:size-6 sm:text-sm lg:left-2 lg:top-2 lg:size-8 lg:text-base ${isToday ? 'bg-blue-500 font-semibold text-white' : ''} ${month < 0 ? 'text-slate-400' : 'text-slate-800'}`}>
                 {day}
               </span>
-              
+
               {isNewMonth && (
                 <span className="absolute bottom-0.5 left-0 w-full truncate px-1.5 text-sm font-semibold text-slate-300 sm:bottom-0 sm:text-lg lg:bottom-2.5 lg:left-3.5 lg:-mb-1 lg:w-fit lg:px-0 lg:text-xl 2xl:mb-[-4px] 2xl:text-2xl">
                   {monthNames[month]}
@@ -282,8 +282,8 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
                 </div>
               )}
 
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="absolute right-2 top-2 rounded-full opacity-0 transition-all focus:opacity-100 group-hover:opacity-100"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -291,7 +291,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
                 }}
               >
                 <svg className="size-8 scale-90 text-blue-500 transition-all hover:scale-100 group-focus:scale-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z" clipRule="evenodd"/>
+                  <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
@@ -339,16 +339,16 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
         <div className="mb-4 flex w-full flex-wrap items-center justify-between gap-6">
           <div className="flex flex-wrap gap-2 sm:gap-3">
             <Select name="month" value={`${selectedMonth}`} options={monthOptions} onChange={handleMonthChange} />
-              <button onClick={handleTodayClick} type="button" className="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 lg:px-5 lg:py-2.5">
-                Hoje
-              </button>
+            <button onClick={handleTodayClick} type="button" className="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 lg:px-5 lg:py-2.5">
+              Hoje
+            </button>
 
-            <button 
+            <button
               onClick={handleAddEventClick}
-              type="button" 
+              type="button"
               className="whitespace-nowrap rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-3 py-1.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-cyan-300 sm:rounded-xl lg:px-5 lg:py-2.5"
             >
-                + Adicionar Evento
+              + Adicionar Evento
             </button>
           </div>
           <div className="flex w-fit items-center justify-between">
@@ -357,7 +357,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
               className="rounded-full border p-1 transition-colors hover:bg-slate-100 sm:p-2"
             >
               <svg className="size-5 text-slate-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 19-7-7 7-7"/>
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 19-7-7 7-7" />
               </svg>
             </button>
             <h1 className="min-w-16 text-center text-lg font-semibold sm:min-w-20 sm:text-xl">{year}</h1>
@@ -366,7 +366,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
               className="rounded-full border p-1 transition-colors hover:bg-slate-100 sm:p-2"
             >
               <svg className="size-5 text-slate-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 5 7 7-7 7"/>
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 5 7 7-7 7" />
               </svg>
             </button>
           </div>

@@ -7,6 +7,7 @@ const FloatingNavbar = () => {
 
   const navItems = [
     { name: 'Calendário', path: '/calendario', icon: '📅' },
+    { name: 'Funil de Vendas', path: '/funil', icon: '🎯' },
     { name: 'Notificações', path: '/notificacoes', icon: '🔔' },
     { name: 'Cadastro', path: '/cadastro-funcionario', icon: '👤' },
     { name: 'Formulário', path: '/formulario-agregado', icon: '📝' },
@@ -36,7 +37,7 @@ const FloatingNavbar = () => {
                 {item.name}
               </Link>
             ))}
-            
+
             {/* Botão Logout */}
             <button
               onClick={() => {
@@ -69,7 +70,7 @@ const FloatingNavbar = () => {
         {/* Menu Mobile */}
         {isMenuOpen && (
           <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40" onClick={() => setIsMenuOpen(false)}>
-            <div 
+            <div
               className="fixed top-24 right-6 bg-white/40 backdrop-blur-xl shadow-2xl rounded-2xl p-4 border border-gray-200/50 min-w-[200px]"
               onClick={(e) => e.stopPropagation()}
             >
@@ -91,7 +92,7 @@ const FloatingNavbar = () => {
                     {item.name}
                   </Link>
                 ))}
-                
+
                 <button
                   onClick={() => {
                     localStorage.removeItem('token');

@@ -59,6 +59,11 @@ model Cliente {
   funilId           Int      @map("funil_id")
   funilVendas       Funil_Vendas @relation(fields: [funilId], references: [id])
 
+  // Campos adicionais para vendas
+  valorVenda        Decimal? @map("valor_venda") @db.Decimal(10, 2)
+  dataVenda         DateTime? @map("data_venda") @db.Date
+  observacoes       String?  @map("observacoes") @db.LongText
+
   // Relacionamentos com outras tabelas
   contatos          ContatoCliente[]
   agendamentos      AgendamentoInteracao[]
