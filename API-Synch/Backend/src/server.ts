@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -58,7 +58,8 @@ app.use('/candidatos', candidatosRoutes);
 
 // Server startup
 httpServer.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em: http://localhost:${PORT}`);
+  const baseUrl = process.env.API_URL;
+  console.log(`🚀 Servidor rodando em: ${baseUrl}`);
   console.log('\n📡 Rotas disponíveis:');
   console.log('  Auth:');
   console.log('    POST   /login');
@@ -101,5 +102,5 @@ httpServer.listen(PORT, () => {
   console.log('  Candidatos:');
   console.log('    POST   /candidatos');
   console.log('    GET    /candidatos');
-  console.log('\n⚡ Socket.io ativo em: ws://localhost:${PORT}');
+  console.log(`\n⚡ Socket.io ativo em: ws://localhost:${PORT}`);
 });

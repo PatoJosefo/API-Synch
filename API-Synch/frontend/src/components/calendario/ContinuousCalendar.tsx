@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { EventModal } from './EventModal';
 import { eventosAPI, type EventoResponse } from '../../services/api';
 import { EventDetailsPanel } from './EventDetailsPanel';
+import { useAuth } from '../Context/AuthContext';
 
 const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
@@ -39,6 +40,9 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
 
   const monthOptions = monthNames.map((month, index) => ({ name: month, value: `${index}` }));
 
+  const { user } = useAuth();
+  const funcionarioId = user ? Number(user.id) : 1; // Fallback para 1 se não houver usuário
+
   useEffect(() => {
     loadEventos();
   }, []);
@@ -49,7 +53,6 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
 
     setIsLoadingEvents(true);
     try {
-      const funcionarioId = 1;
       const eventosData = await eventosAPI.listarPorUsuario(funcionarioId);
       setEventos(eventosData);
 
@@ -393,7 +396,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
         isOpen={isModalOpen}
         onClose={handleModalClose}
         selectedDate={selectedDateForEvent}
-        organizadorId={1}
+        organizadorId={funcionarioId}
       />
 
       <EventDetailsPanel

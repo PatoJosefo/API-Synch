@@ -19,16 +19,12 @@ const Login: React.FC = () => {
     // Remove pontos, traços e espaços do CPF
     const cpfLimpo = cpf.replace(/\D/g, '');
 
-    console.log('📤 Tentando fazer login com:', { cpf: cpfLimpo, senha });
-
     try {
-      const response = await axios.post('http://localhost:3000/login', { 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
         cpf: cpfLimpo,
-        senha 
+        senha
       });
-      
-      console.log('✅ Resposta do servidor:', response.data);
-      
+
       const jwtToken = response.data.token;
 
       if (jwtToken) {
@@ -39,7 +35,7 @@ const Login: React.FC = () => {
       }
     } catch (error) {
       console.error('❌ Erro no login:', error);
-      
+
       if (axios.isAxiosError(error) && error.response) {
         console.error('❌ Resposta de erro:', error.response.data);
         setErr(error.response.data.message || 'Falha no login, verifique suas credenciais');

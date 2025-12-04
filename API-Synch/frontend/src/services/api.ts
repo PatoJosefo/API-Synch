@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -63,7 +63,7 @@ export const eventosAPI = {
     const response = await api.post('/eventos', data);
     return response.data;
   },
-  
+
   listarPorUsuario: async (funcionarioId: number) => {
     const response = await api.get<EventoResponse[]>(`/eventos/usuario/${funcionarioId}`);
     return response.data;

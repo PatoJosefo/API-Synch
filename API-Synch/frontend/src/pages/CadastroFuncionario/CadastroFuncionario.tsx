@@ -3,13 +3,13 @@ import type React from "react"
 import { useState } from "react"
 import axios from "axios"
 import { useUserFormValidationFuncionario } from "../../hooks/UserFormValidationFuncionario"
-import { 
-  formatCPF, 
-  formatTelefone, 
-  formatCEP, 
-  removeFormatting, 
-  formatDataBR, 
-  convertDataBRtoISO 
+import {
+  formatCPF,
+  formatTelefone,
+  formatCEP,
+  removeFormatting,
+  formatDataBR,
+  convertDataBRtoISO
 } from "../../utils/formatters"
 import FloatingNavbar from "../../components/layout/FloatingNavbar"
 import "./CadastroForm.css"
@@ -125,16 +125,13 @@ function CadastroFuncionario() {
     delete dataToSend.confirmarSenha;
     delete dataToSend.generoOutro;
 
-    console.log("[v5] Dados a serem enviados:", dataToSend)
-
     try {
-      const response = await axios.post("http://localhost:3000/funcionarios", dataToSend, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/funcionarios`, dataToSend, {
         headers: {
           "Content-Type": "application/json",
         },
       })
 
-      console.log("[v5] Cadastro enviado com sucesso:", response.data)
       setSubmitSuccess(true)
 
       setTimeout(() => {

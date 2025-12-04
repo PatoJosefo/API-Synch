@@ -3,6 +3,7 @@ import FloatingNavbar from "../../components/layout/FloatingNavbar";
 import { eventosAPI, type EventoResponse } from "../../services/api";
 import api from "../../services/api";
 import socketService from "../../services/socketService";
+import { useAuth } from "../../components/Context/AuthContext";
 import "./Notificacoes.css";
 
 function Notificacoes() {
@@ -13,7 +14,8 @@ function Notificacoes() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState<number | null>(null);
 
-  const funcionarioId = 1; // TODO: Pegar do contexto de autenticação
+  const { user } = useAuth();
+  const funcionarioId = user ? Number(user.id) : 1; // Fallback para 1 se não houver usuário
 
   useEffect(() => {
     loadEventos();
@@ -23,7 +25,7 @@ function Notificacoes() {
 
     // Escutar por novas notificações
     socketService.onNovaNotificacao((data) => {
-      console.log('🔔 Nova notificação recebida:', data);
+      // console.log('🔔 Nova notificação recebida:', data);
       loadEventos(); // Recarregar lista de eventos
     });
 
